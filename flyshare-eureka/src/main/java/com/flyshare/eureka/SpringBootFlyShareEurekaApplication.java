@@ -1,4 +1,4 @@
-package com.dbjinjin.flyshare.eureka;
+package com.flyshare.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
