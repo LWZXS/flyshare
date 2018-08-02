@@ -7,5 +7,7 @@
 	<packaging>pom</packaging>
   <modules>
     <module>flyshare-eureka</module>
+    <module>flyshare-system</module>
+    <module>flyshare-busi</module>
   </modules>
 </project>
