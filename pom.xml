@@ -9,5 +9,6 @@
     <module>flyshare-eureka</module>
     <module>flyshare-system</module>
     <module>flyshare-busi</module>
+    <module>flyshare-tools</module>
   </modules>
 </project>
