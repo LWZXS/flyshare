@@ -15,12 +15,22 @@ package com.flyshare.base.util;
 public class StrUtils
 {
 	/**
-	 * 
+	 * 检查字符串是否为空
 	 * @param checkStr
 	 * @return
 	 */
 	public static boolean isNull(String checkStr)
 	{
 		return checkStr == null || checkStr.length() == 0;
+	}
+	
+	/**
+	 * 检查字符串是否非空
+	 * @param checkStr
+	 * @return
+	 */
+	public static boolean isNotNull(String checkStr)
+	{
+		return !isNull(checkStr);
 	}
 }

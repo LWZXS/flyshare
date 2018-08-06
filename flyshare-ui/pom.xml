@@ -2,24 +2,24 @@
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
 	<modelVersion>4.0.0</modelVersion>
-
 	<parent>
 		<groupId>com.dbjinjin</groupId>
 		<artifactId>flyshare-parent</artifactId>
 		<version>1.0</version>
 	</parent>
-
-	<artifactId>flyshare-busi</artifactId>
-	<name>flyshare-busi</name>
+	<artifactId>flyshare-ui</artifactId>
+	<packaging>war</packaging>
+	<name>flyshare-ui Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
 	<dependencies>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -27,9 +27,13 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
-		
+
+
 	</dependencies>
+	<build>
+		<finalName>flyshare-ui</finalName>
+	</build>
 </project>

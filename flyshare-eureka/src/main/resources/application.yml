@@ -1,0 +1,22 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: FlyShare-Eureka
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false #表示不将自己注册到注册中心去
+    fetch-registry: false
+    service-url:  #注册中心的地址
+       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+security:
+  basic:
+    enabled: true
+  user:
+    name: root
+    password: 123456    

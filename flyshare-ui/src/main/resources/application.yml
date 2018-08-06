@@ -1,0 +1,15 @@
+server:
+  port: 8222
+
+spring:
+  application:
+    name: FlyShare-UI
+    
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+       defaultZone: http://${eureka.instance.hostname}:8000/eureka/
+ 
+   
