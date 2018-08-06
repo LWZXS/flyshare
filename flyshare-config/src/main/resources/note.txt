@@ -1,0 +1,3 @@
+http://localhost:8500/flyshare/online/master
+
+http://localhost:8500/flyshare/dev/master
