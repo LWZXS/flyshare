@@ -64,3 +64,5 @@ flyshare-base/.gitignore
 flyshare-base/.classpath
 .settings/org.eclipse.m2e.core.prefs
 .settings/org.eclipse.core.resources.prefs
+flyshare-ui/.settings/org.springframework.ide.eclipse.prefs
+flyshare-ui/.gitignore
