@@ -8,23 +8,34 @@
 		<artifactId>flyshare-parent</artifactId>
 		<version>1.0</version>
 	</parent>
+
 	<artifactId>flyshare-config</artifactId>
 	<name>flyshare-config</name>
-	<url>http://maven.apache.org</url>
+	<packaging>jar</packaging>
+
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<start-class>com.dbjinjin.flyshare.config.SpringBootFlyShareConfigApplication</start-class>
 	</properties>
+
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
-		
+
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka-server</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-		
+
 	</dependencies>
+
 </project>

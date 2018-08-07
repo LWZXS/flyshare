@@ -3,13 +3,4 @@ server:
 
 spring:
   application:
-    name: FlyShare-Busi
-    
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    service-url:
-       defaultZone: http://${eureka.instance.hostname}:8000/eureka/
- 
-   
+    name: flyshare-busi

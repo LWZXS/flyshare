@@ -3,16 +3,14 @@ server:
 
 spring:
   application:
-    name: FlyShare-Eureka
+    name: flyshare-eureka
 
 eureka:
-  instance:
-    hostname: localhost
   client:
     register-with-eureka: false #表示不将自己注册到注册中心去
     fetch-registry: false
-    service-url:  #注册中心的地址
-       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    service-url:                #注册中心的地址
+       defaultZone: http://127.0.0.1:8000/eureka/
 
 security:
   basic:

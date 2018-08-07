@@ -1,22 +1,21 @@
+server:
+  port: 8500
+  
 spring:
   application:
     name: flyshare-config
   cloud:
     config:
+      label: master
       server:
         git:
           uri: https://gitee.com/dbjinjin0820/flyshare-config
           username: dbjinjin0820
           password: pz2008154954803
 
-server:
-  port: 8500
-  
 eureka:
   instance:
-    hostname: localhost
+    appname: flyshare-config
   client:
-    register-with-eureka: false #表示不将自己注册到注册中心去
-    fetch-registry: false
-    service-url:  #注册中心的地址
-       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ 
+    serviceUrl:
+          defaultZone: http://root:123456@127.0.0.1:8000/eureka/          
