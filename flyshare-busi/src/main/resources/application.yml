@@ -4,3 +4,8 @@ server:
 spring:
   application:
     name: flyshare-busi
+    
+#management:
+  #security:
+    #enabled: false  # 刷新时，关闭安全验证
+

@@ -1,7 +1,6 @@
-http://localhost:8500/flyshare-config/online/master
+http://localhost:8500/flyshare-busi/dev/master
+http://localhost:8501/flyshare-busi/dev/master
 
-http://localhost:8500/flyshare-config/dev/master
+http://localhost:8500/flyshare-busi/test/master
 
-
-
-https://blog.csdn.net/maoyeqiu/article/details/78543948
+http://localhost:8500/flyshare-busi/pro/master

@@ -2,13 +2,13 @@ spring:
   cloud:
     config:
       discovery:
-        enabled: true #开启通过服务来访问Config Server的功能
-        service-id: flyshare-config
-      name: flyshare-config  
-      profile: online
+        enabled: true  #开启Config服务发现支持
+        service-id: flyshare-config #指定server端的name,也就是server端spring.application.name的值
+      name: flyshare-busi
+      profile: dev
       label: master
       
 eureka:
   client:
     service-url:
-       defaultZone: http://root:123456@127.0.0.1:8000/eureka/
+       defaultZone: http://root:123456@127.0.0.1:8000/eureka/ #指向配置中心的地址

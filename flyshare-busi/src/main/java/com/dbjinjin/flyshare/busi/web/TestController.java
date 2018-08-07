@@ -26,13 +26,13 @@ public class TestController
 	@Value("${server.port}")
 	private String port;
 
-	@Value("${title}")
-	private String title;
+	@Value("${message}")
+	private String message;
 
 	@RequestMapping("say")
 	public String say()
 	{
-		return "hello world" + title;
+		return "message==>" + message;
 	}
 
 	@RequestMapping("hello")
