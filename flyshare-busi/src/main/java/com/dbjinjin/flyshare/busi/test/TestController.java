@@ -1,4 +1,4 @@
-package com.dbjinjin.flyshare.busi.web;
+package com.dbjinjin.flyshare.busi.test;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

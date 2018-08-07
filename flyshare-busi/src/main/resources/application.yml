@@ -5,7 +5,13 @@ spring:
   application:
     name: flyshare-busi
     
-#management:
-  #security:
-    #enabled: false  # 刷新时，关闭安全验证
-
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/flyshare
+    username: root
+    password: 123456a
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true  
+  
