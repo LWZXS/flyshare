@@ -17,6 +17,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<start-class>com.dbjinjin.flyshare.busi.SpringBootFlyShareBusiApplication</start-class>
 	</properties>
 
 	<dependencies>
@@ -46,6 +47,21 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.dbjinjin</groupId>
+			<artifactId>flyshare-base</artifactId>
+			<version>1.0</version>
+		</dependency>
 
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

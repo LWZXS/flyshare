@@ -1,13 +1,15 @@
 package com.dbjinjin.flyshare.busi.user.web;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dbjinjin.flyshare.base.util.DateUtils;
 import com.dbjinjin.flyshare.busi.user.model.User;
-import com.dbjinjin.flyshare.busi.user.service.UserService;
+import com.dbjinjin.flyshare.busi.user.repository.UserRepository;
 
 /**
  * <p>标题： UserController</p>
@@ -25,11 +27,19 @@ import com.dbjinjin.flyshare.busi.user.service.UserService;
 public class UserController
 {
 	@Autowired
-	private UserService userRepository;
+	private UserRepository userRepository;
 
-	@GetMapping("/user/list")
-	public List<User> findUserList()
+	@GetMapping("/user/{id}")
+	public User findById(@PathVariable Long id)
 	{
-		return this.userRepository.findAll();
+		return userRepository.findOne(id);
+	}
+
+	@PostMapping("/user")
+	public User postUser(@RequestBody User user)
+	{
+		System.out.println("@GetMapping(\"user\") 接收参数对象 user: " + user);
+		user.setPredate(DateUtils.getServerDate());
+		return userRepository.save(user);
 	}
 }

@@ -66,3 +66,12 @@ flyshare-base/.classpath
 .settings/org.eclipse.core.resources.prefs
 flyshare-ui/.settings/org.springframework.ide.eclipse.prefs
 flyshare-ui/.gitignore
+flyshare-ui/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+flyshare-ui/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+flyshare-ui/target/maven-archiver/pom.properties
+flyshare-ui/target/flyshare-ui/index.jsp
+flyshare-ui/target/flyshare-ui/WEB-INF/web.xml
+flyshare-ui/target/flyshare-ui/WEB-INF/classes/application.yml
+flyshare-ui/target/flyshare-ui/WEB-INF/classes/1001.png
+flyshare-ui/target/flyshare-ui.war.original
+flyshare-ui/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst

@@ -1,10 +1,14 @@
 package com.dbjinjin.flyshare.busi.user.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.dbjinjin.flyshare.busi.base.model.BaseModel;
 
 /**
  * <p>标题： User</p>
@@ -19,33 +23,37 @@ import javax.persistence.Id;
  * @version 1.0
  */
 @Entity
-public class User
+public class User extends BaseModel
 {
+	private static final long serialVersionUID = 893123116823103886L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long id;// ID
 
 	@Column
-	private String username;
+	private String username;// 用户名
 
 	@Column
-	private String password;
+	private String password;// 密码
 
 	@Column
-	private String nicknage;
+	private String nickname;// 昵称
 
 	@Column
-	private Integer age;
+	private String gender;// 性别
 
-	public Long getId()
-	{
-		return id;
-	}
+	@Column
+	private Date birthday;// 出生日期
 
-	public void setId(Long id)
-	{
-		this.id = id;
-	}
+	@Column
+	private String email;// 邮箱
+
+	@Column
+	private Date predate;// 创建时间
+
+	@Column
+	private Date modifydate;// 修改时间
 
 	public String getUsername()
 	{
@@ -67,24 +75,63 @@ public class User
 		this.password = password;
 	}
 
-	public String getNicknage()
+	public String getNickname()
 	{
-		return nicknage;
+		return nickname;
 	}
 
-	public void setNicknage(String nicknage)
+	public void setNickname(String nickname)
 	{
-		this.nicknage = nicknage;
+		this.nickname = nickname;
 	}
 
-	public Integer getAge()
+	public String getGender()
 	{
-		return age;
+		return gender;
 	}
 
-	public void setAge(Integer age)
+	public void setGender(String gender)
 	{
-		this.age = age;
+		this.gender = gender;
 	}
 
+	public Date getBirthday()
+	{
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday)
+	{
+		this.birthday = birthday;
+	}
+
+	public String getEmail()
+	{
+		return email;
+	}
+
+	public void setEmail(String email)
+	{
+		this.email = email;
+	}
+
+	public Date getPredate()
+	{
+		return predate;
+	}
+
+	public void setPredate(Date predate)
+	{
+		this.predate = predate;
+	}
+
+	public Date getModifydate()
+	{
+		return modifydate;
+	}
+
+	public void setModifydate(Date modifydate)
+	{
+		this.modifydate = modifydate;
+	}
 }

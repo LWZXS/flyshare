@@ -8,10 +8,15 @@
 		<artifactId>flyshare-parent</artifactId>
 		<version>1.0</version>
 	</parent>
+
 	<artifactId>flyshare-ui</artifactId>
 	<packaging>war</packaging>
-	<name>flyshare-ui Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<name>flyshare-ui</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<start-class>com.dbjinjin.flyshare.ui.SpringBootFlyShareUIApplication</start-class>
+	</properties>
 
 	<dependencies>
 
@@ -33,7 +38,15 @@
 
 
 	</dependencies>
+
 	<build>
 		<finalName>flyshare-ui</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
+
 </project>
