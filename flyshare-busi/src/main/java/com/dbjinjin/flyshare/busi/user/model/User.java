@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.dbjinjin.flyshare.busi.base.model.BaseModel;
+import com.dbjinjin.flyshare.base.model.BaseModel;
 
 /**
  * <p>标题： User</p>

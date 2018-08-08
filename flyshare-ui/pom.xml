@@ -36,6 +36,12 @@
 			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.dbjinjin</groupId>
+			<artifactId>flyshare-base</artifactId>
+			<version>1.0</version>
+		</dependency>
+
 
 	</dependencies>
 

@@ -21,7 +21,8 @@ spring:
 
 eureka:
   instance:
-    appname: flyshare-config
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     serviceUrl:
           defaultZone: http://root:123456@127.0.0.1:8000/eureka/
