@@ -1,11 +1,12 @@
 package com.dbjinjin.flyshare.ui.user.feign;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dbjinjin.flyshare.ui.user.feign.fallback.UserFeignClientFallback;
 import com.dbjinjin.flyshare.ui.user.model.User;
 
 /**
@@ -20,12 +21,12 @@ import com.dbjinjin.flyshare.ui.user.model.User;
  * 复审：
  * @version 1.0
  */
-@FeignClient("flyshare-busi")
+@FeignClient(name = "flyshare-busi", fallback = UserFeignClientFallback.class)
 public interface UserFeignClient
 {
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-	public User findById(@PathVariable("id") Long id);
+	public User findById(@RequestParam("id") Long id);
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	public User postUser(@RequestBody User user);

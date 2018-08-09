@@ -2,8 +2,10 @@ package com.dbjinjin.flyshare.ui;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
 /**
  * <p>标题： SpringBootFlyShareUIApplication</p>
@@ -20,6 +22,8 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient // 启用服务注册于发现
 @EnableFeignClients // 启用Feign远程调用
+@EnableCircuitBreaker	//熔断器
+@EnableHystrixDashboard //熔断器监控
 public class SpringBootFlyShareUIApplication
 {
 	public static void main(String[] args)
