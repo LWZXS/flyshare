@@ -1,5 +1,5 @@
 http://localhost:8500/flyshare-busi/dev/master
-http://localhost:8501/flyshare-busi/dev/master
+
 
 http://localhost:8500/flyshare-busi/test/master
 

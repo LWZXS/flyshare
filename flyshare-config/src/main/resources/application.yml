@@ -13,11 +13,6 @@ spring:
           search-paths: snconfig
           username: dbjinjin0820
           password: pz2008154954803
-  #rabbitmq:
-    #host: 127.0.0.1
-    #port: 5672
-    #username: admin
-    #password: 123456
 
 eureka:
   instance:
@@ -27,6 +22,10 @@ eureka:
     serviceUrl:
           defaultZone: http://root:123456@127.0.0.1:8000/eureka/
           
-#management:
-  #security:
-    #enabled: false
+#配置登录密码
+security:
+  basic:
+    enabled: true
+  user:
+    name: root
+    password: 654321

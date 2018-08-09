@@ -1,6 +1,8 @@
 package com.dbjinjin.flyshare.busi.user.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,10 +26,20 @@ import com.dbjinjin.flyshare.busi.user.repository.UserRepository;
  * @version 1.0
  */
 @RestController
+@RefreshScope
 public class UserController
 {
 	@Autowired
 	private UserRepository userRepository;
+
+	@Value("${message}")
+	private String message;
+
+	@GetMapping("/config")
+	public String getConfigInfo()
+	{
+		return "Config Value:" + message;
+	}
 
 	@GetMapping("/user/{id}")
 	public User findById(@PathVariable Long id)

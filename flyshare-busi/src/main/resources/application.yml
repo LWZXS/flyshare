@@ -1,5 +1,5 @@
 server:
-  port: 8112
+  port: 8111
 
 spring:
   application:
@@ -15,3 +15,6 @@ spring:
       ddl-auto: update
     show-sql: true  
   
+management:
+  security:
+    enabled: false

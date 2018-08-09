@@ -1,5 +1,7 @@
 package com.dbjinjin.flyshare.busi;
 
+import java.util.UUID;
+
 import com.dbjinjin.flyshare.base.util.DateUtils;
 import com.dbjinjin.flyshare.busi.user.model.User;
 
@@ -27,5 +29,6 @@ public class WXHTest
 		user.setPassword("123456");
 		user.setUsername("root");
 		System.out.println(user);
+		System.out.println(UUID.randomUUID().toString().toUpperCase());
 	}
 }

@@ -7,6 +7,8 @@ spring:
       name: flyshare-busi
       profile: dev
       label: master
+      username: root
+      password: 654321
       
 eureka:
   instance:
