@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: flyshare-eureka
+   
+server:
+  port: 8000
+
+eureka:
+  client:
+    #register-with-eureka: false #表示不将自己注册到注册中心去
+    #fetch-registry: false
+    service-url:                #注册中心的地址
+       defaultZone: http://127.0.0.1:8001/eureka/
+
+security:
+  basic:
+    enabled: true
+  user:
+    name: root
+    password: 123456    
