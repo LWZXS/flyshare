@@ -1,8 +1,4 @@
-获取配置中心配置地址
+Busi启动:
 
-http://127.0.0.1:8111/config
-
-
-动态刷新Config配置
-
-POST http://127.0.0.1:8111/refresh
+java -jar D:\wuxiaohai\git\github_new\flyshare-busi\target\flyshare-busi-1.0.jar
+java -jar D:\wuxiaohai\git\github_new\flyshare-busi\target\flyshare-busi-1.0.jar	--spring.profiles.active=peer1

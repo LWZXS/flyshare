@@ -26,6 +26,7 @@ https://segmentfault.com/u/hmilyylimh/articles?page=3
 
 
 Eureka:
+java -jar D:\wuxiaohai\git\github_new\flyshare-eureka\target\flyshare-eureka-1.0.jar
 java -jar D:\wuxiaohai\git\github_new\flyshare-eureka\target\flyshare-eureka-1.0.jar	--spring.profiles.active=peer1
 java -jar D:\wuxiaohai\git\github_new\flyshare-eureka\target\flyshare-eureka-1.0.jar	--spring.profiles.active=peer2
 

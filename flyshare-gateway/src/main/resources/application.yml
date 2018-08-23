@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: flyshare-zuul
+   
+server:
+  port: 8080
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+          defaultZone: http://127.0.0.1:8001/eureka/,http://127.0.0.1:8002/eureka/
+
+zuul:
+  routes:
+    flyshare-busi:
+      path: /user/**
+      service-id: flyshare-busi
+      
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE

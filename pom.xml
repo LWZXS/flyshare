@@ -9,9 +9,10 @@
 	<modules>
 		<module>flyshare-base</module>
 		<module>flyshare-busi</module>
-		<module>flyshare-config</module>
+		<!-- <module>flyshare-config</module> -->
 		<module>flyshare-eureka</module>
 		<module>flyshare-ui</module>
+		<module>flyshare-gateway</module>
 	</modules>
 
 	<parent>
@@ -41,49 +42,17 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-lang3</artifactId>
-				<version>${commons-lang3.version}</version>
-			</dependency>
 
 		</dependencies>
 
 	</dependencyManagement>
 
 	<dependencies>
-
+	
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-cloudfoundry</artifactId>
-		</dependency>
-
-		<!-- 熔断器 相关 -->
-
-		<!-- <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-starter-netflix-hystrix</artifactId> 
-			</dependency> <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-netflix-hystrix-stream</artifactId> 
-			</dependency> -->
-
-		<!-- 解决代码臃肿 -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
 		</dependency>
 
 		<dependency>
@@ -93,5 +62,5 @@
 		</dependency>
 
 	</dependencies>
-	
+
 </project>

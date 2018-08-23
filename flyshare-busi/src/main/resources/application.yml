@@ -1,5 +1,5 @@
 server:
-  port: 8111
+  port: 8110
 
 spring:
   application:
@@ -14,7 +14,11 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: false  
-  
-management:
-  security:
-    enabled: false
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    service-url:
+       defaultZone: http://127.0.0.1:8000/eureka/,http://127.0.0.1:8001/eureka/
