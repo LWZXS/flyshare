@@ -1,0 +1,85 @@
+$(document).ready(function(){
+  $(".zczh").click(function(){
+	  $(".tanchu").hide();
+	  $(".zczhs").show();
+	  $('.companys').removeClass('active');
+	  $('.zczh').addClass('active');
+	  $(".zj").html("注册账号");
+	  $(".ezj").html("Registration");
+	  $(".ezj").css("font-size","22px");
+	  $(".imgess").css("background-image","url(style/img/register.png)");
+  });
+  $(".qyba").click(function(){
+	  $(".tanchu").hide();
+	  $(".qybas").show();
+	  $('.companys').removeClass('active');
+	  $('.qyba').addClass('active');
+	  $(".zj").html("企业备案");
+	  $(".ezj").html("Enterprise Filing");
+	  $(".ezj").css("font-size","16px");
+	  $(".imgess").css("background-image","url(style/img/qyba.png)");
+  });
+  $(".sysq").click(function(){
+	  $(".tanchu").hide();
+	  $(".sysqs").show();
+	  $('.companys').removeClass('active');
+	  $('.sysq').addClass('active');
+	  $(".zj").html("溯源申请");
+	  $(".ezj").html("Traceability Application");
+	  $(".ezj").css("font-size","12px");
+	  $(".imgess").css("background-image","url(style/img/sysq.png)");
+  });
+  $(".sysb").click(function(){
+	  $(".tanchu").hide();
+	  $(".sysbs").show();
+	  $('.companys').removeClass('active');
+	  $('.sysb').addClass('active');
+	  $(".zj").html("溯源申报");
+	  $(".ezj").css("font-size","12px");
+	  $(".ezj").html("Traceability Declaration");
+	  $(".imgess").css("background-image","url(style/img/sysb.png)");
+  });
+  $(".sycx").click(function(){
+	  $(".tanchu").hide();
+	  $(".sycxs").show();
+	  $('.companys').removeClass('active');
+	  $('.sycx').addClass('active');
+	  $(".zj").html("溯源查询");
+	  $(".ezj").html("Traceability Query");
+	  $(".ezj").css("font-size","16px");
+	  $(".imgess").css("background-image","url(style/img/sycx.png)");
+  });
+  $(".symsq").click(function(){
+	  $(".tanchu").hide();
+	  $(".zczhs").show();
+	  $('.companys').removeClass('active');
+	  $('.symsq').addClass('active');
+	  $(".zj").html("溯源码申请");
+	  $(".zj").css("font-size","34px");
+	  $(".ezj").html("Traceability code application");
+	  $(".ezj").css("font-size","14px");
+	  $(".imgess").css({"background-image":"url(style/img/sysq.png)"});
+  });
+  $(".symlq").click(function(){
+	  $(".tanchu").hide();
+	  $(".sycxs").show();
+	  $('.companys').removeClass('active');
+	  $('.symlq').addClass('active');
+	  $(".zj").html("溯源码领取");
+	  $(".zj").css("font-size","34px");
+	  $(".ezj").html("Traceabilty code requisition");
+	  $(".ezj").css("font-size","12px");
+	  $(".imgess").css({"background-image":"url(style/img/qyba.png)"});
+  });
+  $(".bmczhj").click(function(){
+	  $(".tanchu").hide();
+	  $(".sysqs").show();
+	  $('.companys').removeClass('active');
+	  $('.bmczhj').addClass('active');
+	  $(".zj").html("绑码操作环节说明");
+	  $(".zj").css("font-size","24px");
+	  $(".ezj").html("Instructions of coding");
+	  $(".ezj").css("font-size","14px");
+	  $(".imgess").css({"background-image":"url(style/img/sysb.png)","top":"-3%"});
+  });
+});

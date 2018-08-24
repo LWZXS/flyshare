@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <script type="text/javascript" src="js/jquery/jquery-1.8.3.js"></script>
+    <title>忘记密码-01</title>
+
+    <script type="text/javascript">
+        if (window != top) {
+            top.location.href = location.href;
+        }
+        document.ready = function () {
+            var browser = getBrowserInfo().browser;
+            var version = getBrowserInfo().version;
+            if (browser == 'IE' && version < 10) {
+                alert("检测到您的浏览器ie版本过低，请升级到ie10以上，如若是360浏览器的用户，可切换到极速模式下进行浏览。");
+            }
+
+        };
+        function getBrowserInfo() {
+            var userAgent = navigator.userAgent,
+                rMsie = /(msie\s|trident.*rv:)([\w.]+)/,
+                rFirefox = /(firefox)\/([\w.]+)/,
+                rOpera = /(opera).+version\/([\w.]+)/,
+                rChrome = /(chrome)\/([\w.]+)/,
+                rSafari = /version\/([\w.]+).*(safari)/;
+            var browser;
+            var version;
+            var ua = userAgent.toLowerCase();
+            function uaMatch(ua) {
+                var match = rMsie.exec(ua);
+                if (match != null) {
+                    return { browser: "IE", version: match[2] || "0" };
+                }
+                var match = rFirefox.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rOpera.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rChrome.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rSafari.exec(ua);
+                if (match != null) {
+                    return { browser: match[2] || "", version: match[1] || "0" };
+                }
+                if (match != null) {
+                    return { browser: "", version: "0" };
+                }
+            }
+            var browserMatch = uaMatch(userAgent.toLowerCase());
+            if (browserMatch.browser) {
+                browser = browserMatch.browser;
+                version = browserMatch.version;
+            }
+            return {
+                browser: browser,
+                version: version
+            };
+
+
+        }
+    </script>
+
+</head>
+
+<body class="register">
+        <div class="form">
+            <div class="title">
+            	<img src="res/images/logo-m.png"/>
+            	<h2>全球质量溯源服务平台</h2>
+            	<p>Global Quality Traceability Service Platform</p>
+            </div>
+            <div class="items username">
+                <input type="text" class="input required" placeholder="用户名" value="">
+                <p>用户名错误</p>
+            </div>
+            <div class="items ver-code">
+                <input type="text"  placeholder="验证码" class="input">
+                <a href="###"><img src="res/images/ver-code .png"/></a>
+                <p>验证码错误</p>
+            </div>
+            <div class="item">
+            	<button class="btn-submit bottomBtn">下一步</button>
+            </div>
+            <div class="handle-btn clearfix">
+                <div class="handle-home">
+                	<a href="###">返回首页</a>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

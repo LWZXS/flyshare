@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <meta name="renderer" content="webkit|ie-comp|ie-stand"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+    <meta charset="utf-8">
+    <title>溯源系统</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/common.css">
+    <link rel="stylesheet" href="style/liMarquee.css">
+    <link rel="stylesheet" type="text/css" href="style/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="style/jquery-pager/Pager.css">
+    <script type="text/javascript">
+        document.ready = function () {
+            var browser = getBrowserInfo().browser;
+            var version = getBrowserInfo().version;
+            if (browser == 'IE' && version < 10) {
+                alert("检测到您的浏览器ie版本过低，请升级到ie10以上，如若是360浏览器的用户，可切换到极速模式下进行浏览。");
+            }
+            $(".xiala").hide();
+            $(".helpLink").hover(function () {
+                $(".xiala").show();
+            }, function () {
+                $(".xiala").hide();
+            });
+        };
+        function getBrowserInfo() {
+            var userAgent = navigator.userAgent,
+                rMsie = /(msie\s|trident.*rv:)([\w.]+)/,
+                rFirefox = /(firefox)\/([\w.]+)/,
+                rOpera = /(opera).+version\/([\w.]+)/,
+                rChrome = /(chrome)\/([\w.]+)/,
+                rSafari = /version\/([\w.]+).*(safari)/;
+            var browser;
+            var version;
+            var ua = userAgent.toLowerCase();
+            function uaMatch(ua) {
+                var match = rMsie.exec(ua);
+                if (match != null) {
+                    return { browser: "IE", version: match[2] || "0" };
+                }
+                var match = rFirefox.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rOpera.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rChrome.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rSafari.exec(ua);
+                if (match != null) {
+                    return { browser: match[2] || "", version: match[1] || "0" };
+                }
+                if (match != null) {
+                    return { browser: "", version: "0" };
+                }
+            }
+            var browserMatch = uaMatch(userAgent.toLowerCase());
+            if (browserMatch.browser) {
+                browser = browserMatch.browser;
+                version = browserMatch.version;
+            }
+            return {
+                browser: browser,
+                version: version
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <div class="m-hd">
+        <div class="m-hd-wrap">
+            <div class="m-hd-logo">
+                <a href="javascript:;" title="全球质量溯源服务平台">全球质量溯源服务平台</a>
+            </div>
+            <div class="m-hd-menu">
+                <ul>
+                    <li class="indexLink"><a href="首页.html">首页</a></li>
+                    <li class="origindetailLink"><a href="溯源申办-工厂级溯源.html">溯源申办</a></li>
+                    <li class="searchLink"><a href="03-01溯源查询.html">溯源查询</a></li>
+                    <li class="helpLink">
+                        <a href="javascript:;">帮助中心</a>
+                        <div class="dropmenu xiala">
+                            <a href="04-01投诉建议.html" class="dropmenu-item"><span class="advice">投诉建议</span></a>
+                            <a href="04-02查询工具.html" class="dropmenu-item"><span class="countQuery">查询工具</span></a>
+                        </div>
+                    </li>
+                    <li class="newsLink"><a href="05-01新闻资讯.html">新闻资讯</a></li>
+                </ul>
+            </div>
+            <div class="m-hd-operation">
+                <a href="08-01登录.html" target="_blank">登录</a>
+                <a href="08-02注册.html" target="_blank">注册</a>
+                <a href="###" class="user-center">
+            		<i class="icons-user-center"></i>
+            		<span>用户中心</span>
+            	</a>
+            </div>
+        </div>
+    </div>
+    <style type="text/css">
+        #factory {
+            position: absolute;
+            top: 37.4%;
+            border-radius: 50%;
+            left: 26%;
+            width: 4.7% !important;
+            height: 9% !important;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hover:HOVER {
+            /* 	background-image: url(style/img/Halo3.png);
+    background-repeat: no-repeat;
+    background-position: center; */
+            -webkit-box-shadow:0 0 15px 5px rgba(255,255,255,.8);
+            -moz-box-shadow:0 0 15px 5px rgba(255,255,255,.8);
+            box-shadow: 0 0 15px 5px rgba(255,255,255,.8);
+        }
+
+        #originabroad {
+            position: absolute;
+            top: 49.9%;
+    		left: 22.2%;
+            width: 4.7% !important;
+            height: 9% !important;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        #originport {
+            position: absolute;
+            top: 63.3%;
+    		left: 21.5%;
+            width: 4.7% !important;
+            height: 9% !important;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        #international {
+            position: absolute;
+            top: 72.3%;
+    		left: 26.8%;
+            width: 4.7% !important;
+            height: 9% !important;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        #enterprise {
+            position: absolute;
+            top: 36.8%;
+    		left: 68.66%;
+            width: 4.7% !important;
+            height: 9% !important;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        #consumer {
+            position: absolute;
+            top: 46.6%;
+    		left: 73.6%;
+            width: 4.7% !important;
+            height: 9% !important;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        #interface {
+            position: absolute;
+            top: 59.9%;
+    		left: 74%;	
+            width: 4.7% !important;
+            height: 9% !important;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        #supervise {
+            position: absolute;
+            top: 72%;
+    		left: 70%;
+            width: 4.7% !important;
+            height: 9% !important;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .news_main {
+            position: relative;
+        }
+
+        .gods {
+            position: absolute;
+            width: 1100px;
+            height: 450px;
+            left: 50%;
+            top: 27%;
+            margin-left: -550px;
+        }
+
+        #left {
+            position: absolute;
+            left: 2.6%;
+            width: 500px;
+            height: 400px;
+        }
+
+        #right {
+            position: absolute;
+            left: 51.5%;
+            width: 500px;
+            height: 400px;
+            /* 	padding-left: 20px;
+	border-left: 1px solid #000; */
+        }
+
+        .newsTitle {
+            font-size: 0;
+            margin-bottom: 17px;
+        }
+
+        .newsList .newsItem:last-child .newsTitle {
+            margin-bottom: 0;
+        }
+
+        .newsTitle .img_right {
+            width: 75%;
+            display: inline-block;
+            vertical-align: top;
+            font-size: 14px;
+            padding: 10px 0;
+        }
+
+        .newsTitle .img {
+            width: 100px;
+            height: 66px;
+            display: inline-block;
+            background-image: url("../sypage/style/img/unnews.jpg");
+        }
+
+        .newsTitle .img_right p {
+            padding-left: 10px;
+            width: 95%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            word-break: break-word;
+            color: #000;
+            display: -moz-grid;
+            white-space: nowrap;
+        }
+
+        .newsList {
+            background-color: transparent;
+        }
+
+        .more {
+            color: #333;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .more:HOVER {
+            text-decoration: underline;
+        }
+
+        .fonts {
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .imagesfonts {
+            position: absolute;
+            bottom:0;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            word-break: break-word;
+            color: #fff;
+            display: -moz-grid;
+            width: 500px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .picture {
+            width: 500px !important;
+            height: 360px !important;
+        }
+
+        .background {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        .nofinds {
+            background-image: url("../sypage/style/img/indexNews.jpg");
+        }
+    </style>
+    <div class="home">
+
+        <div class="swiper-container home-container swiper-container-vertical" style="cursor: grab;">
+            <div class="swiper-pagination swiper-pagination1 swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span>
+                <span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+
+            <div class="swiper-wrapper swiper-wrapper1" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+
+                <div class="swiper-slide swiper-slide-active" style="height: 520px;">
+
+                    <div class="swiper-container2 swiper-banner swiper-container-horizontal" style="cursor: grab;">
+                        <div class="swiper-pagination swiper-pagination2"></div>
+                        <div class="swiper-wrapper swiper-wrapper2">
+                            <div class="background banner swiper-slide" style="background-image: url('res/images/banner01.jpg');">
+                            </div>
+                            <div class="background banner swiper-slide" style="background-image: url('res/images/banner02.jpg');">
+                            </div>
+                            <div class="background banner swiper-slide" style="background-image: url('res/images/banner03.jpg');">
+                            </div>
+                            <div class="background banner swiper-slide" style="background-image: url('res/images/banner04.jpg');">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- 轮播图第二个页面 -->
+                <div class="swiper-slide core swiper-slide-next" style="height: 520px;">
+                    <div class="slide-item">
+                        <div class="banner">
+                            <img src="res/images/banner05.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 轮播图第三页面 -->
+                <div class="swiper-slide core1" style="height: 520px;">
+                    <div class="slide-item">
+                        <div class="banner">
+                            <img src="res/images/banner06.jpg" alt="">
+                            <!-- 工厂级溯源 -->
+                            <a href="origincompany.jsp" target="_blank">
+                                <div id="factory" class="hover"></div>
+                            </a>
+                            <!-- 贸易级溯源 -->
+                            <a href="originabroad.jsp" target="_blank">
+                                <div id="originabroad" class="hover"></div>
+                            </a>
+                            <!-- 口岸级溯源 -->
+                            <a href="originport.jsp" target="_blank">
+                                <div id="originport" class="hover"></div>
+                            </a>
+                            <!-- 国际邮快件溯源 -->
+                            <a href="originexpress.jsp" target="_blank">
+                                <div id="international" class="hover"></div>
+                            </a>
+                            <!-- 企业查询 -->
+                            <a href="03search.jsp" target="_blank">
+                                <div id="enterprise" class="hover"></div>
+                            </a>
+                            <!-- 消费者查询 -->
+                            <a href="03search.jsp" target="_blank">
+                                <div id="consumer" class="hover"></div>
+                            </a>
+                            <!-- 数据接口查询 -->
+                            <!--   <a href="javascript:void(0)" target="_blank"> -->
+                            <div id="interface" class="hover"></div>
+                            <!--  </a> -->
+                            <!-- 查询监管机构 -->
+                            <a href="03search.jsp" target="_blank">
+                                <div id="supervise" class="hover"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 輪播圖第四頁面 -->
+                <div class="swiper-slide news news_main" style="height: 520px;">
+                    <div class="slide-item">
+                        <div class="banner">
+                            <img src="res/images/banner07.jpg" alt="">
+                            <div class="gods">
+                                <div class="more">新闻资讯MORE</div>
+                                <div id="left" class="swiper-small swiper-container-horizontal" style="overflow: hidden; cursor: -webkit-grab;">
+                                    <div class="swiper-wrapper" id="images" style="transform: translate3d(-2000px, 0px, 0px); transition-duration: 0ms;">
+                                        <div class="swiper-slide" style="width: 500px;">
+                                            <a href="http://www.gqts.gov.cn/syxt/a/syxt/syxtNew/newDetails?id=8d86f597ae5e41028ed8bcb8af8684ae" target="_blank">
+                                                <p class="imagesfonts">测试数据</p><img src="res/images/new1.jpg"
+                                                    alt="" onerror="nofinds();" class="nofinds"></a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 500px;">
+                                            <a href="http://www.gqts.gov.cn/syxt/a/syxt/syxtNew/newDetails?id=7d4a718db3e44e13b8fea7a703740056" target="_blank">
+                                                <p class="imagesfonts">“智慧”南沙探索深化改革新路径</p><img src="res/images/new1.jpg"
+                                                    alt="" onerror="nofinds();" class="nofinds"></a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 500px;">
+                                            <a href="http://www.gqts.gov.cn/syxt/a/syxt/syxtNew/newDetails?id=dd749e2054144be68292863f9726e5fd" target="_blank">
+                                                <p class="imagesfonts">《丝路探秘》</p><img src="res/images/new1.jpg"
+                                                    alt="" onerror="nofinds();" class="nofinds"></a>
+                                        </div>
+                                        <div class="swiper-slide swiper-slide-prev" style="width: 500px;">
+                                            <a href="http://www.gqts.gov.cn/syxt/a/syxt/syxtNew/newDetails?id=f8b1ce6559214c9b9d66c49724a54b14" target="_blank">
+                                                <p class="imagesfonts">探索高标准规则体系 促进投资贸易便利化</p><img src="res/images/new1.jpg"
+                                                    alt="" onerror="nofinds();" class="nofinds"></a>
+                                        </div>
+                                        <div class="swiper-slide swiper-slide-active" style="width: 500px;">
+                                            <a href="http://www.gqts.gov.cn/syxt/a/syxt/syxtNew/newDetails?id=d48b6fd6210b471bbdf78f200e957e04" target="_blank">
+                                                <p class="imagesfonts">进出口商品全球质量溯源体系试点启动</p><img src="res/images/new1.jpg"
+                                                    alt="" onerror="nofinds();" class="nofinds"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="right">
+                                    <div class="newsList">
+                                        <div class="leftSetion" id="queryresult">
+                                            <div class="newsItem">
+                                                <a href="http://www.gqts.gov.cn/syxt/a/syxt/syxtNew/newDetails?id=8d86f597ae5e41028ed8bcb8af8684ae"
+                                                    target="_blank">
+                                                    <div class="newsTitle">
+                                                    	<img class="img" src="res/images/new2.jpg" alt="" />
+                                                        <div class="img_right">
+                                                            <p class="fonts">测试数据</p>
+                                                            <p>2017-06-27 , 测试2</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="newsDetail"></div>
+                                                </a>
+                                            </div>
+                                            <div class="newsItem">
+                                                <a href="http://www.gqts.gov.cn/syxt/a/syxt/syxtNew/newDetails?id=7d4a718db3e44e13b8fea7a703740056"
+                                                    target="_blank">
+                                                    <div class="newsTitle">
+                                                    	<img class="img" src="res/images/new2.jpg" alt="" />
+                                                        <div class="img_right">
+                                                            <p class="fonts">“智慧”南沙探索深化改革新路径</p>
+                                                            <p>2017-06-27 , 南沙出入境检验检疫局工作人员现场展示全球质量溯源体系。</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="newsDetail"></div>
+                                                </a>
+                                            </div>
+                                            <div class="newsItem">
+                                                <a href="http://www.gqts.gov.cn/syxt/a/syxt/syxtNew/newDetails?id=dd749e2054144be68292863f9726e5fd"
+                                                    target="_blank">
+                                                    <div class="newsTitle">
+                                                    	<img class="img" src="res/images/new2.jpg" alt="" />
+                                                        <div class="img_right">
+                                                            <p class="fonts">《丝路探秘》</p>
+                                                            <p>2017-06-27 , 《丝路探秘》 20170507 南沙港的黑猫警长</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="newsDetail"></div>
+                                                </a>
+                                            </div>
+                                            <div class="newsItem">
+                                                <a href="http://www.gqts.gov.cn/syxt/a/syxt/syxtNew/newDetails?id=f8b1ce6559214c9b9d66c49724a54b14"
+                                                    target="_blank">
+                                                    <div class="newsTitle">
+                                                    	<img class="img" src="res/images/new2.jpg" alt="" />
+                                                        <div class="img_right">
+                                                            <p class="fonts">探索高标准规则体系 促进投资贸易便利化</p>
+                                                            <p>2017-06-20 , 探索高标准规则体系 促进投资贸易便利化</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="newsDetail"></div>
+                                                </a>
+                                            </div>
+                                            <div class="newsItem">
+                                                <a href="http://www.gqts.gov.cn/syxt/a/syxt/syxtNew/newDetails?id=d48b6fd6210b471bbdf78f200e957e04"
+                                                    target="_blank">
+                                                    <div class="newsTitle">
+                                                    	<img class="img" src="res/images/new2.jpg" alt="" />
+                                                        <div class="img_right">
+                                                            <p class="fonts">进出口商品全球质量溯源体系试点启动</p>
+                                                            <p>2017-06-20 , 进出口商品全球质量溯源体系试点启动</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="newsDetail"></div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 第五页面 -->
+                <div class="swiper-slide swiper-slide-end" style="height: 520px;">
+                    <div class="slide-item">
+
+                        <div class="partner">
+                            <div class="wrap newsWrap">
+
+                                <div class="model newPad">
+                                    <div class="title">
+                                        <span class="h2">Cooperative partner</span><br>
+                                        <div class="h1">— 共建单位 —</div>
+
+                                        <div class="h3">全球质量溯源体系</div>
+                                    </div>
+                                </div>
+
+                                <div class="brands">
+                                    <img class="item" src="style/img/01.jpg" alt="">
+                                    <img class="item" src="style/img/02.jpg" alt="">
+                                    <img class="item" src="style/img/03.jpg" alt="">
+                                    <img class="item" src="style/img/04.jpg" alt="">
+                                    <img class="item" src="style/img/05.jpg" alt="">
+                                    <img class="item" src="style/img/06.jpg" alt="">
+                                    <img class="item" src="style/img/07.jpg" alt="">
+                                    <img class="item" src="style/img/08.jpg" alt="">
+                                    <img class="item" src="style/img/09.jpg" alt="">
+                                    <img class="item" src="style/img/10.jpg" alt="">
+                                    <img class="item" src="style/img/11.jpg" alt="">
+                                    <img class="item" src="style/img/12.jpg" alt="">
+                                    <img class="item" src="style/img/13.jpg" alt="">
+                                    <img class="item" src="style/img/14.jpg" alt="">
+                                    <img class="item" src="style/img/15.jpg" alt="">
+                                    <img class="item" src="style/img/16.jpg" alt="">
+                                    <img class="item" src="style/img/17.jpg" alt="">
+                                    <img class="item" src="style/img/18.jpg" alt="">
+                                    <img class="item" src="style/img/19.jpg" alt="">
+                                    <img class="item" src="style/img/20.jpg" alt="">
+                                    <img class="item" src="style/img/21.jpg" alt="">
+                                    <img class="item" src="style/img/22.jpg" alt="">
+                                    <img class="item" src="style/img/23.jpg" alt="">
+                                    <img class="item" src="style/img/24.jpg" alt="">
+                                    <img class="item" src="style/img/25.jpg" alt="">
+                                    <img class="item" src="style/img/26.jpg" alt="">
+                                    <img class="item" src="style/img/27.jpg" alt="">
+                                    <img class="item" src="style/img/28.jpg" alt="">
+                                    <img class="item" src="style/img/29.jpg" alt="">
+                                    <img class="item" src="style/img/30.jpg" alt="">
+                                </div>
+                                <div class="brands">
+                                    <img class="item" src="style/img/31.jpg" alt="">
+                                    <img class="item" src="style/img/32.jpg" alt="">
+                                    <img class="item" src="style/img/33.jpg" alt="">
+                                    <img class="item" src="style/img/34.jpg" alt="">
+                                    <img class="item" src="style/img/35.jpg" alt="">
+                                    <img class="item" src="style/img/36.jpg" alt="">
+                                    <img class="item" src="style/img/37.jpg" alt="">
+                                    <img class="item" src="style/img/38.jpg" alt="">
+                                    <img class="item" src="style/img/39.jpg" alt="">
+                                    <img class="item" src="style/img/40.jpg" alt="">
+                                    <img class="item" src="style/img/41.jpg" alt="">
+                                    <img class="item" src="style/img/42.jpg" alt="">
+                                    <img class="item" src="style/img/43.jpg" alt="">
+                                    <img class="item" src="style/img/44.jpg" alt="">
+                                    <img class="item" src="style/img/45.jpg" alt="">
+                                    <img class="item" src="style/img/46.jpg" alt="">
+                                    <img class="item" src="style/img/47.jpg" alt="">
+                                    <img class="item" src="style/img/48.jpg" alt="">
+                                    <img class="item" src="style/img/49.jpg" alt="">
+                                    <img class="item" src="style/img/50.jpg" alt="">
+                                    <img class="item" src="style/img/51.jpg" alt="">
+                                    <img class="item" src="style/img/52.jpg" alt="">
+                                    <img class="item" src="style/img/53.jpg" alt="">
+                                    <img class="item" src="style/img/54.jpg" alt="">
+                                    <img class="item" src="style/img/55.jpg" alt="">
+                                    <img class="item" src="style/img/56.jpg" alt="">
+                                    <img class="item" src="style/img/57.jpg" alt="">
+                                    <img class="item" src="style/img/58.jpg" alt="">
+                                    <img class="item" src="style/img/59.jpg" alt="">
+                                    <img class="item" src="style/img/60.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="footer" style="padding-bottom: 10px;">
+                            <div class="top">
+                                <a href="10-01关于我们.html" style="margin-left:0;">关于我们</a> |
+                                <a href="10-02联系我们.html">联系我们</a>
+                            </div>
+                            <div class="wrap">
+                                <div class="items">
+                                    <div class="item">
+                                        <div class="infos" style="text-align: center;">
+                                            <p><span class="compa">主办单位：广东出入境检验检疫局</span><span class="compa">指导单位：国家质量监督检验检疫总局</span></p>
+                                            <div class="logo">
+                                                <p>粤ICP备15010729号-3</p><span class="logo-mini"><img src="res/images/logo-mini.png" alt=""></span></div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript" src="js/jquery/jquery-1.8.3.js"></script>
+                        <script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
+                        <script type="text/javascript" src="js/swiper.min.js"></script>
+                        <script type="text/javascript" src="js/jquery-pager/jquery.pager.js"></script>
+                        <script type="text/javascript" src="js/jquery/jquery.liMarquee.js"></script>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script type="text/javascript" src="js/syxt.js"></script>
+    <script>
+        // var counts;
+        // $.ajax({
+        //     url: '/syxt/a/syxt/syxtNew/findCounts',
+        //     async: false,
+        //     success: function (data) {
+        //         counts = data;
+        //     }
+        // })
+
+        function nofind() {
+            var img = event.srcElement;
+            img.src = "../sypage/style/img/unnews.jpg";
+            img.onerror = null;
+        }
+        function nofinds() {
+            var img = event.srcElement;
+            img.src = "../sypage/style/img/indexNews.jpg";
+            img.onerror = null;
+        }
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            //导航栏加个active
+            $('.indexLink').siblings().find('a').removeClass('active');
+            $('.indexLink').find('a').addClass('active');
+            $('title').html("首页");
+            $('.brands').liMarquee();
+
+
+            function timeToDate(time) {
+                if (time == '') {
+                    return '';
+                }
+                var date = new Date(time);
+                Y = date.getFullYear() + '-';
+                M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+                D = date.getDate() + ' ';
+                /* h = date.getHours() + ':';
+                m = date.getMinutes() + ':';
+                s = (date.getSeconds() <10 ? '0'+date.getSeconds():date.getSeconds()); */
+                return Y + M + D/* +h+m+s */;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

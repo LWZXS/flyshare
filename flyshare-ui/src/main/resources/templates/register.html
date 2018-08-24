@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <link rel="stylesheet" type="text/css" href="style/common.css"/>
+    <script type="text/javascript" src="js/jquery/jquery-1.8.3.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/scrollview.css"/>
+    <link rel="stylesheet" type="text/css" href="style/service.css"/>
+    <title>注册</title>
+
+    <script type="text/javascript">
+        if (window != top) {
+            top.location.href = location.href;
+        }
+        document.ready = function () {
+            var browser = getBrowserInfo().browser;
+            var version = getBrowserInfo().version;
+            if (browser == 'IE' && version < 10) {
+                alert("检测到您的浏览器ie版本过低，请升级到ie10以上，如若是360浏览器的用户，可切换到极速模式下进行浏览。");
+            }
+
+        };
+        function getBrowserInfo() {
+            var userAgent = navigator.userAgent,
+                rMsie = /(msie\s|trident.*rv:)([\w.]+)/,
+                rFirefox = /(firefox)\/([\w.]+)/,
+                rOpera = /(opera).+version\/([\w.]+)/,
+                rChrome = /(chrome)\/([\w.]+)/,
+                rSafari = /version\/([\w.]+).*(safari)/;
+            var browser;
+            var version;
+            var ua = userAgent.toLowerCase();
+            function uaMatch(ua) {
+                var match = rMsie.exec(ua);
+                if (match != null) {
+                    return { browser: "IE", version: match[2] || "0" };
+                }
+                var match = rFirefox.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rOpera.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rChrome.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rSafari.exec(ua);
+                if (match != null) {
+                    return { browser: match[2] || "", version: match[1] || "0" };
+                }
+                if (match != null) {
+                    return { browser: "", version: "0" };
+                }
+            }
+            var browserMatch = uaMatch(userAgent.toLowerCase());
+            if (browserMatch.browser) {
+                browser = browserMatch.browser;
+                version = browserMatch.version;
+            }
+            return {
+                browser: browser,
+                version: version
+            };
+
+
+        }
+    </script>
+
+</head>
+
+<body class="register">
+        <div class="form register-wrap">
+            <div class="title">
+            	<img src="res/images/logo-m.png"/>
+            	<h2>全球质量溯源服务平台</h2>
+            	<p>Global Quality Traceability Service Platform</p>
+            </div>
+            <div class="items username sure">
+                <input type="text" class="input required" placeholder="用户名" value="">
+                <p>用户名错误</p>
+                <i class="icons-tick"></i>
+            </div>
+            <div class="items error">
+                <input type="password"  placeholder="密码" class="input">
+                <p>密码错误</p>
+                <i class="icons-tick"></i>
+            </div>
+            <div class="items ">
+                <input type="password"  placeholder="确认密码" class="input">
+                <p>密码错误</p>
+                <i class="icons-tick"></i>
+            </div>
+            <div class="items ">
+                <input type="text"  placeholder="手机号码" class="input">
+                <p>手机号码错误</p>
+                <i class="icons-tick"></i>
+            </div>
+            <div class="items item-ver">
+                <input type="text"  placeholder="验证码" class="input">
+            	<a href="###" class="btn-ver disabled">发送验证码</a>
+                <p>验证码错误</p>
+            </div>
+            <div class="item">
+            	<div class="term-cont">
+                    <i class="icons-check"></i>
+                    <span>我已阅读并同意 <a href="###" class="btn-ser">《用户注册协议》</a></span>
+                </div>
+            	<button class="btn-submit bottomBtn">注 册</button>
+            </div>
+            <div class="handle-btn clearfix">
+                <div class="handle-home">
+                	<a href="###">返回首页</a>
+                </div>
+            </div>
+        </div>
+		 <!-- 用户协议弹出框 -->
+        <div class="cover"></div>
+        <div class="agreement">
+            <h1>用户注册协议</h1>
+            <i class="icons-close"></i>
+            <div class="context">
+                <div class="scroll-warp" style="height:423px">
+                    <div class="scroll-c">
+                        <div class="regist-yhzcxy">
+                            <p>欢迎您访问“全球质量溯源服务平台”（以下简称“溯源服务平台”）！</p>
+                            <p>注册前请仔细阅读以下协议内容：</p>
+                            <p class="txt-indent">本用户注册协议(以下简称“本协议”)是由用户(“您”)与广东出入境检验检疫局就溯源服务平台提供的服务所订立的相关权利和义务的规范，本服务条款对您和广东出入境检验检疫局均具有法律约束力。溯源服务平台发布的相关政策、规定构成本协议的一部分，您须同时遵守。</p>
+                            <h5><strong>一、溯源服务平台使用说明：</strong></h5>
+                            <p>1、溯源服务平台是由广东出入境检验检疫局根据中华人民共和国法律成立的公共服务平台。</p>
+                            <p>2、溯源服务平台为您提供交流沟通和参与互动的平台服务。</p>
+                            <p>3、广东出入境检验检疫局将根据本协议规定对您的注册信息进行严格保密。如您认为溯源服务平台超越了正常服务范畴使用了您的个人信息，请立即与溯源服务平台管理员联系，溯源服务平台将核实纠正。</p>
+                            <p>4、同时，为了准确优质地向您提供服务，请确保：</p>
+                            <p>（1） 注册资料的真实、准确、详尽；</p>
+                            <p>（2） 注册信息如有变更，请及时更新。</p>
+                            <p>5、因溯源服务平台的扩展或者服务深化，本协议可能会不时更新，请予以关注，您同时认可更</p>
+                        	<h5><strong>二、服务平台：</strong></h5>
+                            <p>1、溯源服务平台是由广东出入境检验检疫局根据中华人民共和国法律成立的公共服务平台。</p>
+                            <p>2、溯源服务平台为您提供交流沟通和参与互动的平台服务。</p>
+                            <p>3、广东出入境检验检疫局将根据本协议规定对您的注册信息进行严格保密。如您认为溯源服务平台超越了正常服务范畴使用了您的个人信息，请立即与溯源服务平台管理员联系，溯源服务平台将核实纠正。</p>
+                            <p>4、同时，为了准确优质地向您提供服务，请确保：</p>
+                            <p>（1） 注册资料的真实、准确、详尽；</p>
+                            <p>（2） 注册信息如有变更，请及时更新。</p>
+                            <p>5、因溯源服务平台的扩展或者服务深化，本协议可能会不时更新，请予以关注，您同时认可更</p>
+                            <h5><strong>三、平台使用说明：</strong></h5>
+                            <p>1、溯源服务平台是由广东出入境检验检疫局根据中华人民共和国法律成立的公共服务平台。</p>
+                            <p>2、溯源服务平台为您提供交流沟通和参与互动的平台服务。</p>
+                            <p>3、广东出入境检验检疫局将根据本协议规定对您的注册信息进行严格保密。如您认为溯源服务平台超越了正常服务范畴使用了您的个人信息，请立即与溯源服务平台管理员联系，溯源服务平台将核实纠正。</p>
+                            <p>4、同时，为了准确优质地向您提供服务，请确保：</p>
+                            <p>（1） 注册资料的真实、准确、详尽；</p>
+                            <p>（2） 注册信息如有变更，请及时更新。</p>
+                            <p>5、因溯源服务平台的扩展或者服务深化，本协议可能会不时更新，请予以关注，您同时认可更</p>
+                        </div>
+                    </div>
+                    <div class="scroll">
+                        <div class="scroll-bg"></div>
+                        <div class="scroll-bar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="confirm">同意并注册</button>
+            </div>
+        </div>
+        <script src="js/jquery.scrollbar.js" type="text/javascript" charset="utf-8"></script>
+	    <script type="text/javascript ">
+			$(function(){
+				//滚动条初始化
+		        var scrollbar = $(".scroll-c").scrollBar({
+		            scrollDir: "y",
+		            scrollBarSelector: ".scroll",
+		            sliderSelector: ".scroll-bar",
+		            showScrollBar: true
+		        });
+		        // 用户协议
+	            var agreement = $(".agreement");
+	            var cover = $(".cover");
+	            var close = agreement.find(".icons-close");
+	            var confirm = agreement.find(".confirm");
+	            var cancel = agreement.find(".cancel");
+	            close.click(function() {
+	                closePop();
+	            })
+	            confirm.click(function() {
+	                closePop();
+	            })
+	            cancel.click(function() {
+	                closePop();
+	            })
+	
+	            function closePop() {
+	                cover.hide();
+	                agreement.hide();
+	            }
+	            $(".btn-ser").click(function(){
+	                $(".cover").show();
+	                $(".agreement").show();
+	                $(".scroll-c").trigger("resetSlide");
+	            })
+	            $(".icons-check,.term-cont>span").click(function(){
+	                $(this).parent().toggleClass("checked");
+	            })
+			})
+	    </script>
+</body>
+
+</html>

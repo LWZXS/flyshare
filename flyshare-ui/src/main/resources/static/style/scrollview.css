@@ -1,0 +1,58 @@
+/*#
+lib=widgets/css/ui_ftc.css
+#*/
+.scroll-warp{
+	height: 100%;
+	position: relative;
+	overflow: hidden !important;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	padding: 0;
+}
+.scroll-c{
+	width: auto !important;
+	max-width:none !important;
+	height: 100%;
+	/*overflow: scroll !important;*/
+	overflow-y: scroll !important;
+	position: relative;
+	box-sizing: content-box;
+	overflow-x: hidden;
+	padding:0; 
+	margin-right: -17px!important;
+}
+/*.scroll-c::-webkit-scrollbar{
+	width:0;
+	height: 0;
+}*/
+.scroll{
+	width: 6px;
+	height: 100%;
+	right: 0px;
+	top: 0;
+	position: absolute;
+	visibility: hidden;
+	z-index: 20;
+}
+.scroll .scroll-bg{
+	width: 100%;
+	height: 100%;
+	background-color:#cdcccc;
+	z-index: 5;
+	/*opacity: 0.2;
+	filter: alpha(opacity=20);*/
+}
+.scroll .scroll-bar{
+	width: 6px;
+	background-color: #666666;
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	/*border-radius:3px;*/
+	/*-webkit-transition: height linear 0.1s;
+	-moz-transition: height linear 0.1s;
+	-o-transition: height linear 0.1s;
+	transition: height linear 0.1s;*/
+}

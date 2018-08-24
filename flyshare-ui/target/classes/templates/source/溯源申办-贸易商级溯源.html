@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <meta name="renderer" content="webkit|ie-comp|ie-stand"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+    <meta charset="utf-8">
+    <title>溯源申办</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/common.css">
+    <link rel="stylesheet" href="style/liMarquee.css">
+    <link rel="stylesheet" type="text/css" href="style/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="style/jquery-pager/Pager.css">
+    <script type="text/javascript">
+        document.ready = function () {
+            var browser = getBrowserInfo().browser;
+            var version = getBrowserInfo().version;
+            if (browser == 'IE' && version < 10) {
+                alert("检测到您的浏览器ie版本过低，请升级到ie10以上，如若是360浏览器的用户，可切换到极速模式下进行浏览。");
+            }
+            $(".xiala").hide();
+            $(".helpLink").hover(function () {
+                $(".xiala").show();
+            }, function () {
+                $(".xiala").hide();
+            });
+        };
+        function getBrowserInfo() {
+            var userAgent = navigator.userAgent,
+                rMsie = /(msie\s|trident.*rv:)([\w.]+)/,
+                rFirefox = /(firefox)\/([\w.]+)/,
+                rOpera = /(opera).+version\/([\w.]+)/,
+                rChrome = /(chrome)\/([\w.]+)/,
+                rSafari = /version\/([\w.]+).*(safari)/;
+            var browser;
+            var version;
+            var ua = userAgent.toLowerCase();
+            function uaMatch(ua) {
+                var match = rMsie.exec(ua);
+                if (match != null) {
+                    return { browser: "IE", version: match[2] || "0" };
+                }
+                var match = rFirefox.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rOpera.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rChrome.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rSafari.exec(ua);
+                if (match != null) {
+                    return { browser: match[2] || "", version: match[1] || "0" };
+                }
+                if (match != null) {
+                    return { browser: "", version: "0" };
+                }
+            }
+            var browserMatch = uaMatch(userAgent.toLowerCase());
+            if (browserMatch.browser) {
+                browser = browserMatch.browser;
+                version = browserMatch.version;
+            }
+            return {
+                browser: browser,
+                version: version
+            };
+
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="m-hd">
+        <div class="m-hd-wrap">
+            <div class="m-hd-logo">
+                <a href="javascript:;" title="全球质量溯源服务平台">全球质量溯源服务平台</a>
+            </div>
+             <div class="m-hd-menu">
+                <ul>
+                    <li class="indexLink"><a href="首页.html">首页</a></li>
+                    <li class="origindetailLink"><a href="溯源申办-工厂级溯源.html">溯源申办</a></li>
+                    <li class="searchLink"><a href="03-01溯源查询.html">溯源查询</a></li>
+                    <li class="helpLink">
+                        <a href="javascript:;">帮助中心</a>
+                        <div class="dropmenu xiala">
+                            <a href="04-01投诉建议.html" class="dropmenu-item"><span class="advice">投诉建议</span></a>
+                            <a href="04-02查询工具.html" class="dropmenu-item"><span class="countQuery">查询工具</span></a>
+                        </div>
+                    </li>
+                    <li class="newsLink"><a href="05-01新闻资讯.html">新闻资讯</a></li>
+                </ul>
+            </div>
+            <div class="m-hd-operation">
+                <a href="登录-img.html" target="_blank">登录</a>
+                <a href="注册-img.html" target="_blank">注册</a>
+                <a href="###" class="user-center">
+            		<i class="icons-user-center"></i>
+            		<span>用户中心</span>
+            	</a>
+            </div>
+        </div>
+    </div>
+    <div class="sysbhome">
+        <div class="banner">
+
+            <div class="word">
+                <div class="fonts">
+                    <p style="font-size: 28px;font-family: '黑体';font-weight: bolder;">贸易商级溯源</p>
+                    <p style="font-size: 10px">Trader-level Traceability </p>
+                    <p>贸易商级溯源是指，以海外仓作为信息采集原点，对进出口商品的原产地、品质等信息进行采集、验证，并出具溯源证书的过程。</p>
+                </div>
+            </div>
+
+            <div class="middle">
+                <span class="companys imgess" style="background-image: url('style/img/register.png');top: 3%;left: -31%;background-size: 80px;"></span>
+                <p class="zj">注册账号</p>
+                <p class="ezj" style="font-size: 22px;line-height: 17px;">Registration</p>
+            </div>
+
+			<span class="companys zczh active" style="top: 44%;left: 31%;">
+				<img class="companyimg" src="style/img/register.png" alt="">
+			</span>
+            <div class="foot" style="top: 52%;left: 30%;">
+				<p style="font-weight: bolder;">01 注册账号</p>
+				<p style="font-size: 12px;line-height: 7px;">Registration</p>
+			</div>
+			
+			<span class="companys qyba" style="top:20%;left: 47%;">
+				<img class="companyimg" src="style/img/qyba.png" alt="">
+			</span>
+			<div class="foot" style="top:21%;left: 51%">
+				<p style="font-weight: bolder;">02 企业备案</p>
+				<p style="font-size: 12px;line-height: 7px;">Enterprise Filing</p>
+			</div>
+			<span class="companys sysq" style="top: 44%;left: 64%;">
+					<img class="companyimg" src="style/img/sysq.png" alt="">
+			</span>
+			<div class="foot" style="top:52%;left: 62%">
+				<p style="font-weight: bolder;">03 溯源申请</p>
+				<p style="font-size: 12px;line-height: 7px;">Traceability Application</p>
+			</div>
+			<span class="companys sysb" style="top: 79%;left: 60%;">
+					<img class="companyimg" src="style/img/sysb.png" alt="">
+			</span>
+			<div class="foot" style="top:87%;left: 58%">
+				<p style="font-weight: bolder;">04 溯源申报</p>
+				<p style="font-size: 12px;line-height: 7px;">Traceability Declaration</p>
+			</div>
+			<span class="companys sycx" style="top: 79%;left: 36%;">
+					<img class="companyimg" src="style/img/sycx.png" alt="">
+			</span>
+			<div class="foot" style="top:87%;left: 35%">
+				<p style="font-weight: bolder;">05 溯源查询</p>
+				<p style="font-size: 12px;line-height: 7px;">Traceability Query</p>
+			</div>
+
+
+            <div class="tcleft">
+                <img src="style/img/myjsy.png" alt="" style="top:25%;">
+                <a href="溯源申办-工厂级溯源.html">
+                    <div class="tcleftunselect">工厂级溯源</div>
+                </a>
+                <a href="溯源申办-贸易商级溯源.html">
+                    <div class="tcleftselect">
+                        <div class="tcbleft" style="top:74px;"></div>
+                        <div class="Arrow" style="top:106px;"></div>贸易商级溯源</div>
+                </a>
+                <a href="溯源申办-口岸级溯源.html">
+                    <div class="tcleftunselect">口岸级溯源</div>
+                </a>
+                <a href="溯源申办-国际邮件快件溯源.html">
+                    <div class="tcleftunselect">国际邮快件溯源</div>
+                </a>
+                <a href="溯源申办-溯源码操作说明.html">
+                    <div class="tcleftend">溯源码操作说明</div>
+                </a>
+            </div>
+
+
+
+
+            <div class="tanchu zczhs" style="display: none;">
+                <p class="second">注册账号</p>
+                <p class="third">Registration</p>
+                <span class="tanchuspan">
+		   <p class="fourth">请点击“全球质量溯源服务平台”右上方“注册”功能，进行<a href="register.jsp" style="text-decoration: underline;font-weight: bolder;">用户注册</a>。</p>
+		 </span>
+            </div>
+            <div class="tanchu qybas" style="display: none;">
+                <p class="second">企业备案</p>
+                <p class="third">Enterprise Filing</p>
+                <span class="tanchuspan">
+		  <p class="fourth">溯源申请主体（企业）须在“全球质量溯源服务平台”完成备案。 </p>
+		  <p>备注：一个注册账号对应一个备案企业。</p>
+		 </span>
+            </div>
+            <div class="tanchu sysqs" style="display: none;">
+                <p class="second">溯源申请</p>
+                <p class="third">Traceability Application</p>
+                <span class="tanchuspan" style="line-height: 22px;">
+		  <p><b>贸易商级溯源证书申请</b></p>溯源申请主体（企业）可在“全球质量溯源服务平台”申请贸易商级溯源证书，提交申请后，给予证书申请企业申请回执。
+		 </span>
+            </div>
+            <div class="tanchu sysbs" style="height: 220px; display: block;">
+                <p class="second">溯源申报</p>
+                <p class="third">Traceability Declaration</p>
+                <span class="tanchuspan">
+		  <p class="fourth">溯源申报企业须按照“全球质量溯源服务平台”的申报规范进行溯源申报；对于办理了贸易商级溯源的商品，根据证书申请回执，填写相关字段关联溯源证书。</p>
+		 </span>
+            </div>
+            <div class="tanchu sycxs" style="display: none;">
+                <p class="second">溯源查询</p>
+                <p class="third">Traceability Query</p>
+                <span class="tanchuspan">
+		  <p class="fourth">办理过贸易商级溯源业务的商品可通过溯源码、电子交易订单号、物流单号等条件查询商品的溯源信息。</p>
+		 </span>
+            </div>
+             <a href="10-02联系我们.html" target="_blank">
+                <div class="tcbbb" style="top: 91%;left: 94%;width: 52px;height: 50px;">
+                    <img class="companyimg" src="style/img/Phonebook.png" alt="">
+                    <p style="font-weight: bolder;text-align: center;color: #fff;font-size: 12px;">联系我们</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="footer" style="padding-bottom: 10px;">
+             <div class="top">
+                <a href="10-01关于我们.html" style="margin-left:0;">关于我们</a> |
+                <a href="10-02联系我们.html">联系我们</a>
+            </div>
+            <div class="wrap">
+                <div class="items">
+                    <div class="item">
+                        <div class="infos" style="text-align: center;">
+                            <p><span class="compa">主办单位：广东出入境检验检疫局</span><span class="compa">指导单位：国家质量监督检验检疫总局</span></p>
+                            <div class="logo">
+                                <p>粤ICP备15010729号-3</p><span class="logo-mini"><img src="res/images/logo-mini.png" alt=""></span></div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
+        <script type="text/javascript" src="js/swiper.min.js"></script>
+        <script type="text/javascript" src="js/jquery-pager/jquery.pager.js"></script>
+        <script type="text/javascript" src="js/jquery/jquery.liMarquee.js"></script>
+
+
+    </div>
+    <script>
+        window.onload = function () {
+            //导航栏加个active
+            $('.origindetailLink').siblings().find('a').removeClass('active');
+            $('.origindetailLink').find('a').addClass('active');
+            $('title').html("溯源申办");
+            $('.zczh').addClass('active');
+            $(".tanchu").hide();
+            $(".zczhs").show();
+        }
+    </script>
+    <script type="text/javascript" src="js/sysb.js"></script>
+
+    <style>
+
+    </style>
+</body>
+
+</html>

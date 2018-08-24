@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+    <meta charset="utf-8">
+    <title>投诉建议</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/common.css">
+</head>
+
+<body class="bg-fff">
+    <div class="m-hd other">
+        <div class="m-hd-wrap">
+            <div class="m-hd-logo">
+                <a href="javascript:;" title="全球质量溯源服务平台">全球质量溯源服务平台</a>
+            </div>
+            <div class="m-hd-menu">
+                <ul>
+                    <li class="indexLink"><a href="首页.html" >首页</a></li>
+                    <li class="origindetailLink"><a href="溯源申办-工厂级溯源.html">溯源申办</a></li>
+                    <li class="searchLink"><a href="03-01溯源查询.html">溯源查询</a></li>
+                    <li class="helpLink">
+                        <a href="javascript:;"  class="active">帮助中心</a>
+                        <div class="dropmenu xiala">
+                            <a href="04-01投诉建议.html" class="dropmenu-item"><span class="advice">投诉建议</span></a>
+                            <a href="04-02查询工具.html" class="dropmenu-item"><span class="countQuery">查询工具</span></a>
+                        </div>
+                    </li>
+                    <li class="newsLink"><a href="05-01新闻资讯.html">新闻资讯</a></li>
+                </ul>
+            </div>
+            <div class="m-hd-operation">
+                <a href="登录-img.html" target="_blank">登录</a>
+                <a href="注册-img.html" target="_blank">注册</a>
+                <a href="###" class="user-center">
+            		<i class="icons-user-center"></i>
+            		<span>用户中心</span>
+            	</a>
+            </div>
+        </div>
+    </div>
+    <div class="home">
+    	<div class="w1200  home-content">
+    		<div class="m-tt"><b>投诉与建议</b><span>Suggestion</span></div>
+    		<div class="m-tip">
+    			<p>“聆听客户声音，真诚服务客户”是我们一贯的追求。为持续提升服务品质，溯源中心成立了专职部门负责客户服务，受理各类投诉和服务。溯源中心服务将竭诚服务于客户，为客户提供高质量服务，与客户携手创建共赢局面。 </p>
+    		</div>
+    		<div class="suggest-info">
+    			<p class="m-state">您的建议是：</p>
+    			<form>
+	    			<table>
+	    				<colgroup>
+	    					<col width="55" />
+	    					<col width="270" />
+	    					<col width="85" />
+	    					<col width="240" />
+	    					<col width="72" />
+	    					<col width="240" />
+	    				</colgroup>
+	    				<tr>
+	    					<td class="ar"><span class="flag">*</span>类别</td>
+	    					<td><input type="text" class=""/></td>
+	    					<td><span class="flag">*</span>发生时间</td>
+	    					<td><input type="text" class=""/></td>
+	    				</tr>
+	    				<tr>
+	    					<td class="ar"><span class="flag">*</span>姓名</td>
+	    					<td><input type="text" class=""/></td>
+	    					<td><span class="flag">*</span>电话</td>
+	    					<td><input type="text" class=""/></td>
+	    					<td class="ar"><span class="flag">*</span>邮箱</td>
+	    					<td><input type="text" class=""/></td>
+	    				</tr>
+	    				<tr>
+	    					<td class="ar" style="vertical-align:top;padding-top:11px;"><span class="flag">*</span>内容</td>
+	    					<td colspan="5"><textarea id="textarea"></textarea><p class="ar">剩余<span class="num">1000</span>个字</p></td>
+	    				</tr>
+	    				<tr>
+	    					<td></td>
+	    					<td colspan="5" class="ac">
+	    						<button class="submit">提交</button>
+	    					</td>
+	    				</tr>
+	    			</table>
+    			</form>
+    		</div>
+    	</div>
+        <div class="footer" style="padding-bottom: 10px;">
+           <div class="top">
+                <a href="10-01关于我们.html" style="margin-left:0;">关于我们</a> |
+                <a href="10-02联系我们.html">联系我们</a>
+            </div>
+            <div class="wrap">
+                <div class="items">
+                    <div class="item">
+                        <div class="infos" style="text-align: center;">
+                            <p><span class="compa">主办单位：广东出入境检验检疫局</span><span class="compa">指导单位：国家质量监督检验检疫总局</span></p>
+                            <div class="logo">
+                                <p>粤ICP备15010729号-3</p><span class="logo-mini"><img src="res/images/logo-mini.png" alt=""></span></div>
+							</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery/jquery-1.8.3.js" ></script>
+    <script>
+    	$(function(){
+    		 /*字数限制*/  
+		    $("#textarea").on("input propertychange", function() {  
+		        var $this = $(this),  
+		            _val = $this.val(),  
+		            count = "";  
+		        if (_val.length > 1000) {  
+		            $this.val(_val.substring(0, 1000));  
+		        }  
+		        count = 1000 - $this.val().length;  
+		        $(".num").text(count);  
+		    });  
+    	})
+    </script>
+</body>
+</html>

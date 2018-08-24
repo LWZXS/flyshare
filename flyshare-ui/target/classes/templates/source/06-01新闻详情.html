@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <meta name="renderer" content="webkit|ie-comp|ie-stand"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+    <meta charset="utf-8">
+    <title>新闻详情</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/common.css">
+    <script type="text/javascript">
+        document.ready = function () {
+            var browser = getBrowserInfo().browser;
+            var version = getBrowserInfo().version;
+            if (browser == 'IE' && version < 10) {
+                alert("检测到您的浏览器ie版本过低，请升级到ie10以上，如若是360浏览器的用户，可切换到极速模式下进行浏览。");
+            }
+            $(".xiala").hide();
+            $(".helpLink").hover(function () {
+                $(".xiala").show();
+            }, function () {
+                $(".xiala").hide();
+            });
+        };
+        function getBrowserInfo() {
+            var userAgent = navigator.userAgent,
+                rMsie = /(msie\s|trident.*rv:)([\w.]+)/,
+                rFirefox = /(firefox)\/([\w.]+)/,
+                rOpera = /(opera).+version\/([\w.]+)/,
+                rChrome = /(chrome)\/([\w.]+)/,
+                rSafari = /version\/([\w.]+).*(safari)/;
+            var browser;
+            var version;
+            var ua = userAgent.toLowerCase();
+            function uaMatch(ua) {
+                var match = rMsie.exec(ua);
+                if (match != null) {
+                    return { browser: "IE", version: match[2] || "0" };
+                }
+                var match = rFirefox.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rOpera.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rChrome.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rSafari.exec(ua);
+                if (match != null) {
+                    return { browser: match[2] || "", version: match[1] || "0" };
+                }
+                if (match != null) {
+                    return { browser: "", version: "0" };
+                }
+            }
+            var browserMatch = uaMatch(userAgent.toLowerCase());
+            if (browserMatch.browser) {
+                browser = browserMatch.browser;
+                version = browserMatch.version;
+            }
+            return {
+                browser: browser,
+                version: version
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <div class="m-hd other">
+        <div class="m-hd-wrap">
+            <div class="m-hd-logo">
+                <a href="javascript:;" title="全球质量溯源服务平台">全球质量溯源服务平台</a>
+            </div>
+            <div class="m-hd-menu">
+                <ul>
+                    <li class="indexLink"><a href="首页.html">首页</a></li>
+                    <li class="origindetailLink"><a href="溯源申办-工厂级溯源.html">溯源申办</a></li>
+                    <li class="searchLink"><a href="03-01溯源查询.html">溯源查询</a></li>
+                    <li class="helpLink">
+                        <a href="javascript:;">帮助中心</a>
+                        <div class="dropmenu xiala">
+                            <a href="04-01投诉建议.html" class="dropmenu-item"><span class="advice">投诉建议</span></a>
+                            <a href="04-02查询工具.html" class="dropmenu-item"><span class="countQuery">查询工具</span></a>
+                        </div>
+                    </li>
+                    <li class="newsLink"><a href="05-01新闻资讯.html">新闻资讯</a></li>
+                </ul>
+            </div>
+            <div class="m-hd-operation">
+                <a href="登录-img.html" target="_blank">登录</a>
+                <a href="注册-img.html" target="_blank">注册</a>
+                <a href="###" class="user-center">
+            		<i class="icons-user-center"></i>
+            		<span>用户中心</span>
+            	</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="home subpage">
+        <div class="m-bread"><a href="###">首页</a><span>&gt;</span><a href="###">新闻资讯</a><span>&gt;</span>正文</div>
+        <div class="newsdetails">
+            <h1 class="news-title">自由贸易试验区检验检疫第二批创新制度在广州南沙发布</h1>
+            <div class="news-about"><span class="publish-date">发布日期：2017-06-08 10:39:39</span><span class="publish-from">来源：国际在线</span><span class="news-author">创建人：溯源中心</span><span class="view-count">浏览次数：33</span></div>
+            <div class="content-box">
+                <figure>
+                    <img src="res/images/news-detail.jpg" alt="">
+                    <figcaption class="figcaption">出席活动的领导共同启动全球质量溯源体系</figcaption>
+                </figure>
+                <p>国际在线消息（驻广州记者 韩希）：中国（广东）自由贸易试验区检验检疫第二批创新制度暨“品质中国”成果发布会24日在广州南沙举行。</p>
+                <p>广东自贸区自2015年4月21日挂牌以来，积极探索高标准规则体系、促进投资贸易便利化、加快政府职能转变、深化粤港澳合作，在去年首批27条创新经验的基础上，今年再次推出39项创新经验。</p>
+                <p>广东检验检疫部门大胆突破、先行先试、求真务实，以营造法治化、国际化、便利化营商环境为目标，精心设计适合广东自贸区的创新制度，推出了14项检验检疫创新制度。包括“一二三四”跨境电子商务监管体系、会展检验检疫监管新模式、优化原产地签证方式、入境维修产品检验监管标准体系建设、进口机动车检验监管新制度、“进口食品检验前置”监管模式、建立危险化学品“大数据”监管机制、国际航行船舶卫生检疫5S智能监管体系、船舶“无疫通行”卫生检疫模式、检验检疫流程无纸化、旅客携带物“人-机-犬-仪”四位一体查验新模式、推动进口商品全程溯源、“智检口岸”平台、市场采购监管新模式等。创新制度的实施，大幅提升了口岸通关效率，降低了企业通关成本，有力助推了新业态的发展。</p>
+                <p>其中，由广东出入境检验检疫局开发去年12月推出创新打造并在今年9月推出2.0版本的全球质量溯源体系。建设理念先进、管理制度完善、信息化系统成熟可靠，作为政府、企业和消费者共同参与的社会性体系，质量溯源体系分段采集生产、物流、仓储、消费等各环节质量信息并有效整合，具备工厂级溯源功能，超越一般意义的“优品认定”。特别是采用自主知识产权的“真知码”为载体，闭源设计、开源解码，所有解码应用均需授权接入，确保溯源信息的唯一性、准确性和安全性。对具备资质的境内外公证机构和检验检测机构全面开放，只需对接系统即可按照有关规范开展工作，可实施高效通检，有效促进贸易便利化。</p>
+            </div>
+        </div>
+        <div class="footer" style="padding-bottom: 10px;">
+            <div class="top">
+                <a href="10-01关于我们.html" style="margin-left:0;">关于我们</a> |
+                <a href="10-02联系我们.html">联系我们</a>
+            </div>
+            <div class="wrap">
+                <div class="items">
+                    <div class="item">
+                        <div class="infos" style="text-align: center;">
+                            <p><span class="compa">主办单位：广东出入境检验检疫局</span><span class="compa">指导单位：国家质量监督检验检疫总局</span></p>
+                            <div class="logo">
+                                <p>粤ICP备15010729号-3</p><span class="logo-mini"><img src="res/images/logo-mini.png" alt=""></span></div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery/jquery-1.8.3.js"></script>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            //导航栏加个active
+            $('.newsLink').siblings().find('a').removeClass('active');
+            $('.newsLink').find('a').addClass('active');
+            $('title').html("新闻详情");
+            $('.brands').liMarquee();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <meta name="renderer" content="webkit|ie-comp|ie-stand"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+    <meta charset="utf-8">
+    <title>关于我们</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/common.css">
+    <script type="text/javascript">
+        document.ready = function () {
+            var browser = getBrowserInfo().browser;
+            var version = getBrowserInfo().version;
+            if (browser == 'IE' && version < 10) {
+                alert("检测到您的浏览器ie版本过低，请升级到ie10以上，如若是360浏览器的用户，可切换到极速模式下进行浏览。");
+            }
+            $(".xiala").hide();
+            $(".helpLink").hover(function () {
+                $(".xiala").show();
+            }, function () {
+                $(".xiala").hide();
+            });
+        };
+        function getBrowserInfo() {
+            var userAgent = navigator.userAgent,
+                rMsie = /(msie\s|trident.*rv:)([\w.]+)/,
+                rFirefox = /(firefox)\/([\w.]+)/,
+                rOpera = /(opera).+version\/([\w.]+)/,
+                rChrome = /(chrome)\/([\w.]+)/,
+                rSafari = /version\/([\w.]+).*(safari)/;
+            var browser;
+            var version;
+            var ua = userAgent.toLowerCase();
+            function uaMatch(ua) {
+                var match = rMsie.exec(ua);
+                if (match != null) {
+                    return { browser: "IE", version: match[2] || "0" };
+                }
+                var match = rFirefox.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rOpera.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rChrome.exec(ua);
+                if (match != null) {
+                    return { browser: match[1] || "", version: match[2] || "0" };
+                }
+                var match = rSafari.exec(ua);
+                if (match != null) {
+                    return { browser: match[2] || "", version: match[1] || "0" };
+                }
+                if (match != null) {
+                    return { browser: "", version: "0" };
+                }
+            }
+            var browserMatch = uaMatch(userAgent.toLowerCase());
+            if (browserMatch.browser) {
+                browser = browserMatch.browser;
+                version = browserMatch.version;
+            }
+            return {
+                browser: browser,
+                version: version
+            };
+
+
+        }
+    </script>
+</head>
+<body>
+
+    <div class="m-hd">
+        <div class="m-hd-wrap">
+            <div class="m-hd-logo">
+                <a href="javascript:;" title="全球质量溯源服务平台">全球质量溯源服务平台</a>
+            </div>
+            <div class="m-hd-menu">
+                <ul>
+                    <li class="indexLink"><a href="首页.html">首页</a></li>
+                    <li class="origindetailLink"><a href="溯源申办-工厂级溯源.html">溯源申办</a></li>
+                    <li class="searchLink"><a href="03-01溯源查询.html">溯源查询</a></li>
+                    <li class="helpLink">
+                        <a href="javascript:;">帮助中心</a>
+                        <div class="dropmenu xiala">
+                            <a href="04-01投诉建议.html" class="dropmenu-item"><span class="advice">投诉建议</span></a>
+                            <a href="04-02查询工具.html" class="dropmenu-item"><span class="countQuery">查询工具</span></a>
+                        </div>
+                    </li>
+                    <li class="newsLink"><a href="05-01新闻资讯.html">新闻资讯</a></li>
+                </ul>
+            </div>
+            <div class="m-hd-operation">
+                <a href="javascript:;">登录</a>
+                <a href="javascript:;">注册</a>
+                <a href="###" class="user-center">
+            		<i class="icons-user-center"></i>
+            		<span>用户中心</span>
+            	</a>
+            </div>
+        </div>
+    </div>
+    <div class="sysbhome subp">
+        <div class="banner" style="background:url(res/images/banner-aboutus.jpg);height:399px;"></div>
+        <div class="wrap">
+            <div class="sub-title"><h2 class="title">关于我们<span class="en">About Us</span></h2></div>
+            <p class="about-details">全球质量溯源体系是各国政府部门、企业和消费者共建共享的价值传递体系，通过采集商品从生产、贸易、流通直至消费者的全链条质量信息，实现商品质量溯源和口岸快速通检。全球质量溯源体系以最低成本实现了商品价值的真实传递和贸易便利化。该体系在国家质量监督检验检疫总局的指导下，由广东出入境检验检疫局在中国（广东）自由贸易试验区广州南沙新区片区先行先试打造成型，得到国内外政府部门、企业和消费者的高度认同和积极参与。</p>
+        </div>
+        <div class="footer-wrapper" style="height:150px;">
+            <div class="footer">
+                <div class="top">
+                    <a href="10-01关于我们.html" style="margin-left:0;">关于我们</a> |
+                    <a href="10-02联系我们.html">联系我们</a>
+                </div>
+                <div class="wrap">
+                    <div class="items">
+                        <div class="item">
+                            <div class="infos" style="text-align: center;">
+                                <p><span class="compa">主办单位：广东出入境检验检疫局</span><span class="compa">指导单位：国家质量监督检验检疫总局</span></p>
+                                <div class="logo">
+                                    <p>粤ICP备15010729号-3</p><span class="logo-mini"><img src="res/images/logo-mini.png" alt=""></span></div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery/jquery-1.8.3.js"></script>
+    </div>
+    <script>
+        window.onload = function () {
+            //导航栏加个active
+            $('.origindetailLink').siblings().find('a').removeClass('active');
+            $('title').html("关于我们");
+            setFooterFix();
+        }
+        $(window).resize(function(){
+            setFooterFix();
+        })
+        function setFooterFix(){
+            var footer=$(".footer");
+            footer.css("position","static");
+            var top=footer.offset().top;
+            var fh=footer.height();
+            var height=window.innerHeight;
+            if(top+fh>height){
+                footer.css("position","static");
+            }else{
+                footer.css({'position':'absolute','left':0,bottom:0,right:0})
+            }
+            
+        }
+    </script>
+</body>
+
+</html>
