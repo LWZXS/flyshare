@@ -1,4 +1,4 @@
-package com.dbjinjin.flyshare.ui.test;
+package com.dbjinjin.flyshare.ui.test.web;
 
 import java.util.Date;
 
@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.annotation.JSONField;
 
 /**
+ * 
  * <p>标题： TestController</p>
  * <p>功能： </p>
  * <p>所属模块：</p>
  * <p>版权： Copyright © 2018</p>
- * <p>创建日期：2018年8月24日 下午5:19:39</p>
- * <p>类全名：com.dbjinjin.flyshare.ui.test.TestController</p>
+ * <p>创建日期：2018年8月25日 下午3:03:42</p>
+ * <p>类全名：com.dbjinjin.flyshare.ui.test.web.TestController</p>
  * 作者：wuxiaohai
  * 初审：
  * 复审：

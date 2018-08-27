@@ -3,6 +3,8 @@ package com.dbjinjin.flyshare.ui.index.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.dbjinjin.flyshare.ui.index.common.IndexConstant;
+
 /**
  * <p>标题： IndexController</p>
  * <p>功能： </p>
@@ -18,32 +20,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController
 {
-	public static final String INDEX_PAGE = "index";
-	public static final String LOGIN_PAGE = "login";
-	public static final String REGIST_PAGE = "register";
 
 	@RequestMapping("/")
 	public String home()
 	{
-		return INDEX_PAGE;
+		return IndexConstant.INDEX_PAGE;
 	}
 
 	@RequestMapping("/index.html")
 	public String index()
 	{
-		return INDEX_PAGE;
+		return IndexConstant.INDEX_PAGE;
 	}
 
 	@RequestMapping("/login.html")
 	public String login()
 	{
-		return LOGIN_PAGE;
+		return IndexConstant.LOGIN_PAGE;
 	}
 
 	@RequestMapping("/register.html")
 	public String register()
 	{
-		return REGIST_PAGE;
+		return IndexConstant.REGIST_PAGE;
+	}
+
+	@RequestMapping("/origin-apply.html")
+	public String originApply()
+	{
+		return IndexConstant.ORIGIN_APPLY_PAGE;
+	}
+
+	@RequestMapping("/origin-query.html")
+	public String originQuery()
+	{
+		return IndexConstant.ORIGIN_QUERY_PAGE;
 	}
 
 }
