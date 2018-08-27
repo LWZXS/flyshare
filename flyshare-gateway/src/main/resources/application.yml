@@ -4,20 +4,29 @@ spring:
    
 server:
   port: 8080
-
+  ssl:
+    enabled: true
+    key-store: keystore.p12
+    key-store-password: 537700
+    key-store-type: PKCS12
+    key-alias: tomcat
+  
 eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ipAddress}:${server.port}
   client:
+    register-with-eureka: false #是否将自己注册到Eurek
+    fetch-registry: false #是否从Eureka获取服务注册信息
     serviceUrl:
           defaultZone: http://127.0.0.1:8001/eureka/,http://127.0.0.1:8002/eureka/
 
 zuul:
   routes:
     flyshare-busi:
-      path: /user/**
-      service-id: flyshare-busi
+      path: /origin/**
+      url: http://192.168.3.227:8091
+      #service-id: flyshare-busi
       
 logging:
   level:
