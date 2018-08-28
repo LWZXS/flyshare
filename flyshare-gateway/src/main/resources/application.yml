@@ -30,4 +30,4 @@ zuul:
       
 logging:
   level:
-    org.springframework.cloud.gateway: TRACE
+    org.springframework: TRACE
