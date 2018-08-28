@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,16 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.dbjinjin.flyshare.base.common.SysConstant;
+import com.dbjinjin.flyshare.base.util.StrUtils;
+import com.dbjinjin.flyshare.ui.base.model.Message;
+import com.dbjinjin.flyshare.ui.base.util.MessageUtil;
 import com.dbjinjin.flyshare.ui.file.model.FileInfo;
-
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
 
 /**
  * <p>标题： FileController</p>
@@ -35,40 +37,87 @@ import io.swagger.annotations.ApiOperation;
  * @version 1.0
  */
 @Controller
-@RequestMapping("file")
-@Api(value = "File测试", tags = { "测试接口" })
+@RequestMapping("/file")
 public class FileController
 {
-	private String path = "D:\\wxh";
+	private String path = "/upload";
 
-	@ApiOperation("上传文件")
-    @ApiImplicitParam(name = "file", value = "用户名", dataType = "MultipartFile", paramType = "query")
-	@PostMapping("/upload")
-	public FileInfo upload(MultipartFile file) throws Exception
+	@RequestMapping("/upload.html")
+	public String index()
 	{
-		System.out.println(file.getName());
-		System.out.println(file.getOriginalFilename());
-		System.out.println(file.getSize());
-		File localFile = new File(path, file.getOriginalFilename());
-		file.transferTo(localFile);
-		return new FileInfo(localFile.getAbsolutePath());
+		return "file/upload";
 	}
 
-	@ApiOperation("上传下载")
-    @ApiImplicitParam(name = "id", value = "文件ID", dataType = "String", paramType = "query")
-	@GetMapping("/download/{id}")
-	public void download(@PathVariable String id, HttpServletRequest request, HttpServletResponse response)
+	@PostMapping("/upload")
+	@ResponseBody
+	public Message<FileInfo> upload(@RequestParam("upload-file") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
+		request.setCharacterEncoding(SysConstant.DEFAULT_CODE);
+		response.setCharacterEncoding(SysConstant.DEFAULT_CODE);
+		Message<FileInfo> message = new Message<>();
 		try
 		{
-			InputStream inputStream = new FileInputStream(new File(path, id + ".jpg"));
-			OutputStream outputStream = response.getOutputStream();
-			response.setContentType("application/x-download");
-			response.addHeader("Content-Disposition", "attachment;filename=" + id + ".jpg");
-			IOUtils.copy(inputStream, outputStream);
+			String realPath = request.getServletContext().getRealPath(path);
+			String fileName = file.getOriginalFilename();
+			fileName = URLEncoder.encode(fileName,SysConstant.DEFAULT_CODE);
+			checkSavePathExists(realPath);
+			File localFile = new File(realPath, fileName);
+			long start = System.currentTimeMillis();
+			file.transferTo(localFile);
+			long end = System.currentTimeMillis();
+			FileInfo fileInfo = new FileInfo(fileName, localFile.getAbsolutePath(), file.getSize(), end - start);
+			MessageUtil.buildSuccMessageInfo(message, "附件上传成功", fileInfo);
+			String pathInfo = StrUtils.isNotNull(request.getContextPath()) ? "/" + request.getContextPath() : "";
+			String path = ("http://" + request.getLocalAddr() + ":" + request.getServerPort()) + pathInfo + "/file/download?filename=" + fileInfo.getName();
+			fileInfo.setUrl(path);
 		} catch (Exception e)
 		{
-			e.printStackTrace();
+			MessageUtil.buildExecMessageInfo(message, e);
 		}
+		return message;
+	}
+
+	private void checkSavePathExists(String realPath)
+	{
+		File savePath = new File(realPath);
+		if (!savePath.exists())
+		{
+			savePath.mkdirs();
+			savePath.setWritable(true);
+		}
+	}
+
+	@GetMapping("/download")
+	@ResponseBody
+	public Message<?> download(HttpServletRequest request, HttpServletResponse response)
+	{
+		Message<FileInfo> message = new Message<>();
+		try
+		{
+			request.setCharacterEncoding(SysConstant.DEFAULT_CODE);
+			response.setCharacterEncoding(SysConstant.DEFAULT_CODE);
+			String realPath = request.getServletContext().getRealPath(path);
+			String fileName = request.getParameter("filename");
+			fileName = URLEncoder.encode(fileName, SysConstant.DEFAULT_CODE);
+			if (StrUtils.isNull(fileName))
+			{
+				throw new IllegalArgumentException("文件名称为空~!");
+			}
+			File file = new File(realPath + File.separator + fileName);
+			if (!file.exists())
+			{
+				throw new IllegalArgumentException("附件不存在~!");
+			}
+			InputStream inputStream = new FileInputStream(file);
+			OutputStream outputStream = response.getOutputStream();
+			response.setContentType("application/x-download");
+			response.addHeader("Content-Disposition", "attachment;filename=" + fileName);
+			IOUtils.copy(inputStream, outputStream);
+			MessageUtil.buildSuccMessageInfo(message, "附件下载成功", null);
+		} catch (Exception e)
+		{
+			MessageUtil.buildExecMessageInfo(message, e);
+		}
+		return message;
 	}
 }

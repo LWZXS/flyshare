@@ -113,3 +113,10 @@ flyshare-base/target/classes/META-INF/maven/com.dbjinjin/flyshare-base/pom.prope
 flyshare-base/target/classes/META-INF/MANIFEST.MF
 flyshare-gateway/target/classes/application.yml
 flyshare-gateway/target/classes/META-INF/maven/com.dbjinjin/flyshare-gateway/pom.properties
+flyshare-ui/target/classes/templates/origin_query.html
+flyshare-ui/target/classes/templates/origin_apply.html
+flyshare-ui/target/classes/templates/origin.html
+flyshare-ui/target/classes/templates/file/upload.html
+flyshare-ui/target/classes/public/error/500.html
+flyshare-ui/target/classes/public/error/404.html
+flyshare-ui/target/classes/META-INF/spring-configuration-metadata.json

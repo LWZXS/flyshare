@@ -3,7 +3,7 @@ spring:
     name: flyshare-eureka
    
 server:
-  port: 8000
+  port: 53770
 
 eureka:
   instance:

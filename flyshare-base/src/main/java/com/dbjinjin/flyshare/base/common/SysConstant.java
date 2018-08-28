@@ -16,4 +16,6 @@ package com.dbjinjin.flyshare.base.common;
 public class SysConstant
 {
 
+	public static final String DEFAULT_CODE = "utf-8";
+
 }

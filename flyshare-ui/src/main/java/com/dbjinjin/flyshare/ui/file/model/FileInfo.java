@@ -17,7 +17,57 @@ import com.dbjinjin.flyshare.base.model.BaseModel;
 public class FileInfo extends BaseModel
 {
 	private static final long serialVersionUID = 3009460466742939602L;
+
+	// 文件名称
+	private String name;
+	// 路径
 	private String path;
+	// 文件大小
+	private long size;
+	// 上传时间
+	private long time;
+
+	// 下载URL
+	private String url;
+
+	public FileInfo()
+	{
+	}
+
+	/**
+	 * @param name
+	 * @param path
+	 * @param size
+	 * @param time
+	 */
+	public FileInfo(String name, String path, long size, long time)
+	{
+		super();
+		this.name = name;
+		this.path = path;
+		this.size = size;
+		this.time = time;
+	}
+
+	public long getSize()
+	{
+		return size;
+	}
+
+	public void setSize(long size)
+	{
+		this.size = size;
+	}
+
+	public long getTime()
+	{
+		return time;
+	}
+
+	public void setTime(long time)
+	{
+		this.time = time;
+	}
 
 	public String getPath()
 	{
@@ -29,8 +79,29 @@ public class FileInfo extends BaseModel
 		this.path = path;
 	}
 
-	public FileInfo(String path)
+	public static long getSerialversionuid()
 	{
+		return serialVersionUID;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
+	public String getUrl()
+	{
+		return url;
+	}
+
+	public void setUrl(String url)
+	{
+		this.url = url;
 	}
 
 }

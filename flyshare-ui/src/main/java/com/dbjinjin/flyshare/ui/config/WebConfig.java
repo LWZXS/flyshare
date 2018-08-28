@@ -25,6 +25,10 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 public class WebConfig
 {
 
+	/**
+	 * 定义HTTP对象序列化
+	 * @return
+	 */
 	@Bean
 	public HttpMessageConverters fastJsonHttpMessageConverters()
 	{
