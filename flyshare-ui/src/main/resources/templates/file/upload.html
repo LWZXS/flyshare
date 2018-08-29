@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>文件上传</title>
@@ -14,6 +14,13 @@
 				</td>
 				<td colspan="2">
 					<input type="submit"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<div th:if="${message}">
+    					<div th:text="${message}" style="color: red"></div>
+					</div>
 				</td>
 			</tr>
 		</table>

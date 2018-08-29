@@ -43,14 +43,9 @@ public class Message<T extends BaseModel> implements Serializable
 		this.data = data;
 	}
 
-	public boolean isSucc()
+	public boolean isResult()
 	{
 		return result;
-	}
-
-	public boolean isFail()
-	{
-		return !isSucc();
 	}
 
 	public void setResult(boolean result)

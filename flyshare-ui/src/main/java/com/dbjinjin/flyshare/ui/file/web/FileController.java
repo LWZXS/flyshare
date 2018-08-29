@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,9 @@ import com.dbjinjin.flyshare.base.common.SysConstant;
 import com.dbjinjin.flyshare.base.util.StrUtils;
 import com.dbjinjin.flyshare.ui.base.model.Message;
 import com.dbjinjin.flyshare.ui.base.util.MessageUtil;
-import com.dbjinjin.flyshare.ui.file.model.FileInfo;
+import com.dbjinjin.flyshare.ui.file.model.FileUpload;
+import com.dbjinjin.flyshare.ui.file.model.FileUploadResponseInfo;
+import com.dbjinjin.flyshare.ui.file.repository.FileUploadRepository;
 
 /**
  * <p>标题： FileController</p>
@@ -42,6 +45,9 @@ public class FileController
 {
 	private String path = "/upload";
 
+	@Autowired
+	private FileUploadRepository fileUploadRepository;
+
 	@RequestMapping("/upload.html")
 	public String index()
 	{
@@ -50,26 +56,23 @@ public class FileController
 
 	@PostMapping("/upload")
 	@ResponseBody
-	public Message<FileInfo> upload(@RequestParam("upload-file") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception
+	public Message<FileUpload> upload(@RequestParam("upload-file") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
-		request.setCharacterEncoding(SysConstant.DEFAULT_CODE);
-		response.setCharacterEncoding(SysConstant.DEFAULT_CODE);
-		Message<FileInfo> message = new Message<>();
+		Message<FileUpload> message = new Message<>();
 		try
 		{
+			request.setCharacterEncoding(SysConstant.DEFAULT_CODE);
+			response.setCharacterEncoding(SysConstant.DEFAULT_CODE);
 			String realPath = request.getServletContext().getRealPath(path);
 			String fileName = file.getOriginalFilename();
-			fileName = URLEncoder.encode(fileName,SysConstant.DEFAULT_CODE);
+			fileName = URLEncoder.encode(fileName, SysConstant.DEFAULT_CODE);
+			// 检测上传附件路径是否存在 不存在则创建
 			checkSavePathExists(realPath);
 			File localFile = new File(realPath, fileName);
-			long start = System.currentTimeMillis();
 			file.transferTo(localFile);
-			long end = System.currentTimeMillis();
-			FileInfo fileInfo = new FileInfo(fileName, localFile.getAbsolutePath(), file.getSize(), end - start);
-			MessageUtil.buildSuccMessageInfo(message, "附件上传成功", fileInfo);
-			String pathInfo = StrUtils.isNotNull(request.getContextPath()) ? "/" + request.getContextPath() : "";
-			String path = ("http://" + request.getLocalAddr() + ":" + request.getServerPort()) + pathInfo + "/file/download?filename=" + fileInfo.getName();
-			fileInfo.setUrl(path);
+			FileUpload fileUpload = new FileUpload(fileName, localFile.getPath());
+			fileUploadRepository.save(fileUpload);
+			MessageUtil.buildSuccMessageInfo(message, "附件上传成功", fileUpload);
 		} catch (Exception e)
 		{
 			MessageUtil.buildExecMessageInfo(message, e);
@@ -91,13 +94,16 @@ public class FileController
 	@ResponseBody
 	public Message<?> download(HttpServletRequest request, HttpServletResponse response)
 	{
-		Message<FileInfo> message = new Message<>();
+		Message<FileUploadResponseInfo> message = new Message<>();
 		try
 		{
 			request.setCharacterEncoding(SysConstant.DEFAULT_CODE);
 			response.setCharacterEncoding(SysConstant.DEFAULT_CODE);
 			String realPath = request.getServletContext().getRealPath(path);
+			// 下载文件名称
 			String fileName = request.getParameter("filename");
+			// 是否是下载模式
+			boolean downloadModel = StrUtils.obj2bool(request.getParameter("download"), true);
 			fileName = URLEncoder.encode(fileName, SysConstant.DEFAULT_CODE);
 			if (StrUtils.isNull(fileName))
 			{
@@ -108,10 +114,11 @@ public class FileController
 			{
 				throw new IllegalArgumentException("附件不存在~!");
 			}
+			String disposition = downloadModel ? ("attachment;filename=" + fileName) : ("inline;filename=" + fileName);
 			InputStream inputStream = new FileInputStream(file);
 			OutputStream outputStream = response.getOutputStream();
 			response.setContentType("application/x-download");
-			response.addHeader("Content-Disposition", "attachment;filename=" + fileName);
+			response.addHeader("Content-Disposition", disposition);
 			IOUtils.copy(inputStream, outputStream);
 			MessageUtil.buildSuccMessageInfo(message, "附件下载成功", null);
 		} catch (Exception e)
