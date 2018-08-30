@@ -29,8 +29,11 @@ import com.dbjinjin.flyshare.base.util.DateUtils;
 @Table(name = "sys_file")
 public class FileUpload extends BaseModel
 {
+	private static final long serialVersionUID = -905961972269270606L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JSONField(serialize=false)
 	private Long id;
 
 	@Column
@@ -43,15 +46,19 @@ public class FileUpload extends BaseModel
 	@JSONField(format = "yyyy-MM-dd hh:mm:ss")
 	private Date predate;// 上传时间
 
+	@Column
+	private String linkurl;// 下载链接
+
 	/**
 	 * @param filename
 	 * @param filepath
 	 */
-	public FileUpload(String filename, String filepath)
+	public FileUpload(String filename, String filepath, String linkurl)
 	{
 		super();
 		this.filename = filename;
 		this.filepath = filepath;
+		this.linkurl = linkurl;
 		this.predate = DateUtils.getServerDate();
 	}
 
@@ -95,4 +102,13 @@ public class FileUpload extends BaseModel
 		this.predate = predate;
 	}
 
+	public String getLinkurl()
+	{
+		return linkurl;
+	}
+
+	public void setLinkurl(String linkurl)
+	{
+		this.linkurl = linkurl;
+	}
 }

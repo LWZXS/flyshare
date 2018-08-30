@@ -1,0 +1,163 @@
+一、正式环境：
+1.智检平台企业端前台
+http://www.gdeciq.gov.cn/
+2.智检平台企业端后台
+http://www.gdeciq.gov.cn/icippsp/Login.html
+3.智检平台检管端
+http://192.168.50.55/pmgfs/do/icipaqsiq/icipaqsiq~1000_1000~~0.html?rollback_url=/pmgfs/do/icipaqsiq/icipaqsiq~1000_1010~~0.html#
+4、正式环境监管端前台：http://192.168.50.55/pmgfs/do/icipaqsiq/icipaqsiq~1000_1000~~0.html?rollback_url=/pmgfs/do/icipaqsiq/icipaqsiq~1000_1010~~0.html# 
+5.智检平台监管端后台
+http://192.168.50.55/pmgfs/Login.html 
+
+用户名：liangry
+密码：qwer1234
+辅助监管端：http://www.gdeciq.gov.cn/icippsp/do/icipbeciq/icipbeciq~1000_1000~~0.html 
+冯继亮
+a362051024
+二、测试环境：
+1.智检平台企业端前台
+http://124.127.246.224:8001
+2.智检平台企业端后台
+http://124.127.246.224:8001/icippsp/Login.html 
+3.智检平台监管端前台
+http://124.127.246.224:8002
+4.智检平台监管端后台
+http://124.127.246.224:8002/icipaqsiq/Login.html
+
+用户名：liangry
+密码：qwer1234
+账号：mu_test
+密码：test1234
+
+由于密码输入错误次数较多，导致无法登陆，使用sql更改错误此时
+select testedpwdtimes from users where username='mu_test' 
+update users set testedpwdtimes = 0 where username='mu_test' 
+
+集装箱箱号
+LINU3615374
+
+溯源系统测试库前台
+http://124.127.246.224:8001/origin/do/origin/origin~1010_1005~~0.html
+溯源系统测试库后台
+http://124.127.246.224:8001/origin/Login.html
+用户名：任宇航
+密码：abc123456
+-------------------------
+溯源系统模板
+124.127.246.224:8001/origin/originindex.jsp 
+-------------------------
+溯源系统正式库前台
+http://114.115.203.40/origin/do/origin/origin~1000_1000~~0.html
+溯源系统正式库后台
+http://114.115.203.40/origin/Login.html
+用户名：冯继亮
+密码：a362051024
+
+http://124.127.246.224:8001/origin/originindex.jsp 溯源网站
+http://124.127.246.224:8001/icippsp/do/icipbeciq/icipbeciq~1000_1010~~0.html 辅助监管端测试
+ECIQ传送查验数据至省局中间库--》监管端读取省局中间库的数据--》查验结果不合格--》发送接口给码头
+码头发送入查验区信息给监管端
+邮件快件出场站明细导入：ftp://ftpcs:icipcs123456.@124.127.246.224:21/ICIP/TOPZHI/YJKJ.Depot/in 
+直邮进口货物出场站：ftp://ftpcs:icipcs123456.@124.127.246.224:21/ICIP/TOPZHI/ZY.Depot/in 
+绑码信息导入（网购）：ftp://ftpcs:icipcs123456.@124.127.246.224:21/ICIP/TOPZHI/4200.IMPBA.PSPZCODEINFO/in 
+
+直邮总运单和分运单生成流程：
+三单--》申报清单录入--》清单申报--》监管端查验放行管理选择直接放行--》人工审核--》人工复审--》报文导入总运单（工程类型like总运单）
+
+直邮和快件绑码和溯源系统交互所使用的工程类型【流通领域溯源】
+
+湖南
+企业端测试环境
+前台
+http://10.10.101.25:8092/hnicippsp/hneciqIndex.html
+后台
+http://10.10.101.25:8092/hnicippsp/Login.html
+监管端测试环境
+前台
+http://10.10.101.26:8092/hnpmgfs/pmgfs.html
+后台
+http://10.10.101.26:8092/hnpmgfs/Login.html
+用户名和账号
+yuhang.ren
+Abc12345
+
+湖南正式环境
+企业端前台
+http://121.8.143.194:88/?
+企业端后台
+http://121.8.143.194:88/icippsp/Login.html?
+监管端前台
+http://10.10.101.122/?
+监管端后台
+http://121.8.143.195:88/pmgfs/Login.html?
+辅助监管端
+http://121.8.143.194:88/icippsp/icipbeciq.jsp?
+
+用户名和账号
+yuhang.ren
+abc12345
+
+企业端发送总运单到监管端》监管端针对分运单进行布控（查验or放行）》监管端在查验结果录入和放行管理操作，将布控结果发送给企业端》场站发送理货申请》企业端发送布控结果非场站》场站发送理货报告给企业端》企业端将理货报告发送给监管端
+
+如果你的受理机构在监管端系统配置设置了，如果勾选了直邮业务只使用直邮商品，那么在商品备案下做的备案，直邮录入就选不了
+------
+网购，出区放行之后就能做绑码报文，然后做出仓报文，再到装载
+手机APP登录账号
+登陆账号
+用户1：18610860902
+密码：123456
+
+用户2：18610860903	
+密码：123456
+
+zouwei@snsoft.com.cn
+----app
+文本框中提示去选择条件
+-------
+需跟进的：
+一般贸易报检上传随附单据出错（已询问进度，答复：交给大神处理）
+地图（李科建）
+-----0829
+由权限去控制菜单显示，企业不能看全菜单，超级管理员能看全；
+不带全的，点击进去，根据所属机构和企业进行展示；
+带全的能看到全部；
+
+declbcode 受理机构
+pspooking 表名
+odate 申报日期/申报日期
+status 申报单状态 10未提交 90已删单 退回改单15
+提交时间、申报单状态、受理机构
+
+
+select count(*) from pspooking where (status not in ('10','15','90')) and (sheetcode='4520.EXPMP.PSPOOKING.001' and ciqbcode='000073' and submittime between TO_DATE('08/20/2017','mm/dd/yyyy') and TO_DATE('08/26/2017 23:59:59','mm/dd/yyyy hh24:mi:ss'))
+
+任宇航测试
+123123432435
+
+企业端账号：梁静净 qwer1234
+溯源系统账号：梁静净 qwer1234
+
+南沙局 9999
+在测试库选择南沙局，用南沙局的码001去对应正式库的名，得到的有可能是黄埔局，就是说我选南沙局，显示的有可能是黄埔局 999，如果多选，那确实不能对上，但是单选没问题
+1、测试库显示的名是错误的
+如果我看到：南沙局 999，我要去正式库看南沙局对应的码，再用码去测试库上看，是哪个受理机构，就是哪个受理机构的数据
+2、测试库直接显示码（因正式库没有对应的码）
+3、测试库直接显示0，这应该是数据处理错误，返回两条数据所致
+
+企业备案受理机构语句
+select * from pspccoderegister where (sheetcode='4520.COMM.CCODEREGISTER.PSP' and (agentflag in (1,0))) and (ciqbcode='000068' and status='70' and submitedate between TO_DATE('08/27/2017','mm/dd/yyyy') and TO_DATE('09/02/2017 23:59:59','mm/dd/yyyy hh24:mi:ss')) order by cregistercode desc
+
+市场采购南沙局，黄埔局是000074和000075
+select count(*),sum(contnocount),sum(rcy2) from pspooking where (status <= '75' or status='90') and (sheetcode='4520.EXPMP.PSPOOKING.001' and (status='30' or status='35' or status='40' or status='45' or status='65' or status='67' or status='70' or status='75') and ciqbcode in('000070') and submittime between TO_DATE('08/01/2017','mm/dd/yyyy') and TO_DATE('08/31/2017 23:59:59','mm/dd/yyyy hh24:mi:ss')) order by odate desc,pspookcode nulls last
+
+溯源系统用户名 09081159 qwer1234
+企业端用户09081128 密码qwer1234
+452124199010197765
+
+企业端的商品库是4813
+监管端的商品库是3282
+
+0909申请的单号：ICIP443420031709090002全部为表内，推送到中间库
+什么时候才会进入人工审单
+
+0911创建的企业信息ljj09112055 密码qwer1234

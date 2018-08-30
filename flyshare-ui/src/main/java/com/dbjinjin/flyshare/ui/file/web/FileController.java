@@ -1,7 +1,10 @@
 package com.dbjinjin.flyshare.ui.file.web;
 
+import static org.assertj.core.api.Assertions.in;
+
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URLEncoder;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.dbjinjin.flyshare.base.common.SysConstant;
+import com.dbjinjin.flyshare.base.util.FileUtil;
 import com.dbjinjin.flyshare.base.util.StrUtils;
 import com.dbjinjin.flyshare.ui.base.model.Message;
 import com.dbjinjin.flyshare.ui.base.util.MessageUtil;
@@ -69,8 +73,10 @@ public class FileController
 			// 检测上传附件路径是否存在 不存在则创建
 			checkSavePathExists(realPath);
 			File localFile = new File(realPath, fileName);
+			// 文件存储
 			file.transferTo(localFile);
-			FileUpload fileUpload = new FileUpload(fileName, localFile.getPath());
+			String linkUrl = buildUploadFileLinkUrl(request, fileName);
+			FileUpload fileUpload = new FileUpload(fileName, localFile.getPath(), linkUrl);
 			fileUploadRepository.save(fileUpload);
 			MessageUtil.buildSuccMessageInfo(message, "附件上传成功", fileUpload);
 		} catch (Exception e)
@@ -78,6 +84,14 @@ public class FileController
 			MessageUtil.buildExecMessageInfo(message, e);
 		}
 		return message;
+	}
+
+	private String buildUploadFileLinkUrl(HttpServletRequest request, String fileName)
+	{
+		String ipAddress = request.getLocalAddr();
+		int port = request.getLocalPort();
+		String path = request.getServletPath();
+		return "http://" + ipAddress + ":" + port + (StrUtils.isNull(path) ? "/" + path : "") + "/file/download?filename=" + fileName;
 	}
 
 	private void checkSavePathExists(String realPath)
@@ -95,6 +109,8 @@ public class FileController
 	public Message<?> download(HttpServletRequest request, HttpServletResponse response)
 	{
 		Message<FileUploadResponseInfo> message = new Message<>();
+		InputStream inputStream = null;
+		OutputStream outputStream = null;
 		try
 		{
 			request.setCharacterEncoding(SysConstant.DEFAULT_CODE);
@@ -102,7 +118,7 @@ public class FileController
 			String realPath = request.getServletContext().getRealPath(path);
 			// 下载文件名称
 			String fileName = request.getParameter("filename");
-			// 是否是下载模式
+			// 是否是下载模式 (默认在线预览)
 			boolean downloadModel = StrUtils.obj2bool(request.getParameter("download"), true);
 			fileName = URLEncoder.encode(fileName, SysConstant.DEFAULT_CODE);
 			if (StrUtils.isNull(fileName))
@@ -115,15 +131,33 @@ public class FileController
 				throw new IllegalArgumentException("附件不存在~!");
 			}
 			String disposition = downloadModel ? ("attachment;filename=" + fileName) : ("inline;filename=" + fileName);
-			InputStream inputStream = new FileInputStream(file);
-			OutputStream outputStream = response.getOutputStream();
-			response.setContentType("application/x-download");
+			String contentType = downloadModel ? "application/x-download" : StrUtils.obj2str(FileUtil.getContentType(file), "application/x-download");
+			inputStream = new FileInputStream(file);
+			outputStream = response.getOutputStream();
+			response.setContentType(contentType);
 			response.addHeader("Content-Disposition", disposition);
 			IOUtils.copy(inputStream, outputStream);
 			MessageUtil.buildSuccMessageInfo(message, "附件下载成功", null);
 		} catch (Exception e)
 		{
 			MessageUtil.buildExecMessageInfo(message, e);
+		} finally
+		{
+			try
+			{
+				if (outputStream != null)
+				{
+					outputStream.flush();
+					outputStream.close();
+				}
+				if (inputStream != null)
+				{
+					inputStream.close();
+				}
+			} catch (IOException e)
+			{
+				e.printStackTrace();
+			}
 		}
 		return message;
 	}

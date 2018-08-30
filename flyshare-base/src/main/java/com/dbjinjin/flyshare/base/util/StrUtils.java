@@ -63,4 +63,20 @@ public class StrUtils
 			return defaultValue;
 		}
 	}
+
+	public static String obj2str(Object obj)
+	{
+		return obj2str(obj, null);
+	}
+
+	public static String obj2str(Object obj, String defaultValue)
+	{
+		if (obj == null)
+		{
+			return defaultValue;
+		} else
+		{
+			return obj.toString();
+		}
+	}
 }

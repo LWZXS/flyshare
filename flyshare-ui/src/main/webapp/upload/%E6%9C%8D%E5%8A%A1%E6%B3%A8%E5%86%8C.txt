@@ -1,0 +1,79 @@
+
+java -jar D:\wuxiaohai\git\github_new\flyshare-eureka\target\flyshare-eureka-1.0.jar
+
+
+servicereg
+serviceimplreg
+servicemtdreg
+
+
+
+ws_connect_def
+ws_class_def
+
+
+http://192.168.3.135:8080/file/download?filename=32.jpg&download=false
+
+http://192.168.3.135:8080/file/download?filename=favicon.ico&download=false
+
+
+4561.ORIGIN.EXAMINREPORT.D
+
+#new snsoft.rootbas.component.button.cli.ButtonLimitClilistener({});
+#new snsoft.componet.ddb.cli.DDBMakeCodeCliListener({"ddbcode":"og_brand_reg"});
+#new snsoft.origin.bas.cli.OriginBasCliListener({"addBtn":true,"mainTblName":"og_examinreport","innerCodeFieldName":"ogexreporticode","detailUiiD":"4561.ORIGIN.EXAMINREPORT.D","cmsPage":""});
+
+
+{
+	"data": {
+		"applyCode": "ICIPRP1808290000001",
+		"applyEnterprise": "1000000012",
+		"mechanism": "1805130225",
+		"reportCode": "201808290905",
+		"userId": "psp000000000000000000000010",
+		"file": "[图片]http://www.educity.cn/images/i_logo.png",
+		"reportDate": "2018-08-29",
+		"productCode": "1000000012",
+		"productName": "商品名称201808290905",
+		"productType": "",
+		"originCity": "",
+		"HSCode": "",
+		"produceAddress": "",
+		"trademark": "",
+		"spec": "",
+		"model": "",
+		"pack": "",
+		"batchNumber": "201808290851",
+		"produceDate": "2018-08-29",
+		"expirationDate": "2018-08-29",
+		"QGP": 123,
+		"manufacturer": "",
+		"manuAddress": "",
+		"basis": "",
+		"conclusion": "",
+		"remark": ""
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+1.溯源码申请界面
+2.商品溯源信息维护
+3.检验检测报告 
+
+
+
+  
+  
+  
+
+
